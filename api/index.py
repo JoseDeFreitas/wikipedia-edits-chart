@@ -16,5 +16,4 @@ class handler(BaseHTTPRequestHandler):
 			message = "Hello, stranger!"
 
 		self.wfile.write(message.encode())
-		self.wfile.write(s)
 		return
