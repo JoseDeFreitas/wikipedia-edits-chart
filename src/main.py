@@ -3,11 +3,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return "test"
-
-
-@app.get("/{username}/{language}")
-async def get_user(username: str, language: str):
-    return f"Hello, {username}. You are in the {language} Wikipedia"
+@app.get("/{username}")
+async def get_user(username: str, language: str, timezone: str = "UTC"):
+    return f"Hello, {username}. {language}, {timezone}"
