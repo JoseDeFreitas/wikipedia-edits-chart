@@ -19,7 +19,7 @@ async def get_user(username: str, language: str):
     response = requests.get(url=URL, params=PARAMS).json()
 
     for contribution in response["query"]["usercontribs"]:
-        return
+        date = contribution["timestamp"][:10]
 
     return f"""
     Hello, {username}. {language}
