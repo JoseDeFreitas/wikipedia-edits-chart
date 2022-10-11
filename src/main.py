@@ -18,8 +18,15 @@ async def get_user(username: str, language: str):
 
     response = requests.get(url=URL, params=PARAMS).json()
 
+    days = {}
+
     for contribution in response["query"]["usercontribs"]:
         date = contribution["timestamp"][:10]
+
+        if date not in days.keys():
+            days[date] = 1
+        else:
+            days[date] = days[date] + 1
 
     return f"""
     Hello, {username}. {language}
