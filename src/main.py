@@ -29,5 +29,7 @@ async def get_user(username: str, language: str):
             days[date] = days[date] + 1
 
     return f"""
-    Hello, {username}. {language}
+    <body>
+        <p>{days}</p>
+    </body>
     """
