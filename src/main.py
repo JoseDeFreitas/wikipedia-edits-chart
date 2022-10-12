@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime, timedelta
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
@@ -28,8 +29,12 @@ async def get_user(username: str, language: str):
         else:
             days[date] = days[date] + 1
 
+    tempD = datetime.now()
+    today = f"{tempD.year}-{tempD.month}-{tempD.day}"
+
     return f"""
     <body>
-        <p>{days}</p>
+        <p>{list(days.keys())[-1]}</p>
+        <p>{today}</p>
     </body>
     """
