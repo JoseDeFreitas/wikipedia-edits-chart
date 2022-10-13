@@ -1,6 +1,6 @@
 import requests
-import pandas as pd
 from datetime import datetime, timedelta
+import calendar
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
@@ -29,15 +29,10 @@ async def get_user(username: str, language: str):
         else:
             contrib_days[date] = contrib_days[date] + 1
 
-    full_today = datetime.now()
-    cut_today = f"{full_today.year}-{full_today.month}-{full_today.day}"
-    all_days = pd.date_range(start=list(contrib_days.keys())[-1], end=cut_today)
-
-    for day in all_days:
-        print(str(day)[:10])
+    year_calendar = calendar.HTMLCalendar().formatyear(datetime.now().year, width=4)
 
     return f"""
     <body>
-        <p>{all_days}</p>
+        <p>{year_calendar}</p>
     </body>
     """
