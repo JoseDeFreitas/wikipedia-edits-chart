@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 from datetime import datetime, timedelta
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
@@ -19,22 +20,24 @@ async def get_user(username: str, language: str):
 
     response = requests.get(url=URL, params=PARAMS).json()
 
-    days = {}
-
+    contrib_days = {}
     for contribution in response["query"]["usercontribs"]:
         date = contribution["timestamp"][:10]
 
-        if date not in days.keys():
-            days[date] = 1
+        if date not in contrib_days.keys():
+            contrib_days[date] = 1
         else:
-            days[date] = days[date] + 1
+            contrib_days[date] = contrib_days[date] + 1
 
-    tempD = datetime.now()
-    today = f"{tempD.year}-{tempD.month}-{tempD.day}"
+    full_today = datetime.now()
+    cut_today = f"{full_today.year}-{full_today.month}-{full_today.day}"
+    all_days = pd.date_range(start=list(contrib_days.keys())[-1], end=cut_today)
+
+    for day in all_days:
+        print(str(day)[:10])
 
     return f"""
     <body>
-        <p>{list(days.keys())[-1]}</p>
-        <p>{today}</p>
+        <p>{all_days}</p>
     </body>
     """
