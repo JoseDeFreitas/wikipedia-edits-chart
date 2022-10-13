@@ -18,7 +18,11 @@ async def get_user(username: str, language: str):
         "ucuser": username
     }
 
-    response = requests.get(url=URL, params=PARAMS).json()
+    response = None
+    try:
+        response = requests.get(url=URL, params=PARAMS).json()
+    except:
+        print("The user couldn't be found.")
 
     contrib_days = {}
     for contribution in response["query"]["usercontribs"]:
