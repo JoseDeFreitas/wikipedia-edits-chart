@@ -37,6 +37,7 @@ async def get_user(username: str, language: str):
 
     return f"""
     <body>
+        <p>Contributions from user {username}</p>
         <p>{year_calendar}</p>
     </body>
     """
