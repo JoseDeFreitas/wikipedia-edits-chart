@@ -14,7 +14,7 @@ async def get_user(username: str, language: str):
         "action": "query",
         "format": "json",
         "list": "usercontribs",
-        "uclimit": 500,
+        "uclimit": 500,  # maximum allowed to request
         "ucuser": username
     }
 
@@ -37,6 +37,7 @@ async def get_user(username: str, language: str):
 
     return f"""
     <body>
+        <p>Year: {datetime.now().year}</p>
         <p>Contributions from user {username}</p>
         <p>{year_calendar}</p>
     </body>
