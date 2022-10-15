@@ -1,6 +1,5 @@
 import requests
-from datetime import datetime, timedelta
-import calendar
+import pandas as pd
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
@@ -8,7 +7,7 @@ app = FastAPI()
 
 
 @app.get("/{username}", response_class=HTMLResponse)
-async def get_user(username: str, language: str):
+async def get_user(username: str, language: str, year: str):
     URL = f"https://{language}.wikipedia.org/w/api.php"
     PARAMS = {
         "action": "query",
@@ -33,12 +32,19 @@ async def get_user(username: str, language: str):
         else:
             contrib_days[date] = contrib_days[date] + 1
 
-    year_calendar = calendar.HTMLCalendar().formatyear(datetime.now().year, width=4)
+    year_days = pd.date_range(f"{year}-01-01", f"{year}-12-31")
+
+    contrib_data = ""
+
+
+    for day in year_days:
+        contrib_data += f"<p></p>"
 
     return f"""
     <body>
-        <p>Year: {datetime.now().year}</p>
-        <p>Contributions from user {username}</p>
-        <p>{year_calendar}</p>
+        <h1>Year: {year}. Contributions from user {username}</h1>
+        <div id="contribution-chart">
+            {contrib_days}
+        </div>
     </body>
     """
