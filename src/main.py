@@ -1,5 +1,5 @@
 import requests
-import pandas as pd
+import calendar
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
@@ -32,19 +32,19 @@ async def get_user(username: str, language: str, year: str):
         else:
             contrib_days[date] = contrib_days[date] + 1
 
-    year_days = pd.date_range(f"{year}-01-01", f"{year}-12-31")
-
     contrib_data = ""
 
-
-    for day in year_days:
-        contrib_data += f"<p></p>"
+    days_y = calendar.Calendar().yeardayscalendar(2022, width=12)
+    for month in days_y[0]:
+        for week in month:
+            for i in range(7):
+                contrib_data += f"{week[i]}"
 
     return f"""
     <body>
         <h1>Year: {year}. Contributions from user {username}</h1>
         <div id="contribution-chart">
-            {contrib_days}
+            {contrib_data}
         </div>
     </body>
     """
