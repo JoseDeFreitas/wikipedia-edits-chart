@@ -1,14 +1,18 @@
 import requests
 import calendar
 from datetime import datetime
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/{username}", response_class=HTMLResponse)
-async def get_user(username: str, language: str, year: str):
+async def get_user(request: Request, username: str, language: str, year: str):
     URL = f"https://{language}.wikipedia.org/w/api.php"
     PARAMS = {
         "action": "query",
@@ -60,11 +64,13 @@ async def get_user(username: str, language: str, year: str):
 
         contrib_data += "</div>"
 
-    return f"""
-    <body>
-        <h1>Year: {year}. Contributions from user {username}</h1>
-        <div id="contribution-chart">
-            {contrib_data}
-        </div>
-    </body>
-    """
+    return templates.TemplateResponse(
+        "userchart.html",
+        {
+            "request": request,
+            "id": id,
+            "year": year,
+            "username": username,
+            "data": contrib_data
+        }
+    )

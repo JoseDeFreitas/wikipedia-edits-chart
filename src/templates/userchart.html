@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<head>
+    <title>WikipediaContributionsChart</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Year: {{ year }}. Contributions from user {{ username }}</h1>
+    <div id="contribution-chart">
+        {{ data }}
+    </div>
+</body>
