@@ -1,5 +1,6 @@
 import requests
 import calendar
+from datetime import datetime
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
@@ -34,11 +35,28 @@ async def get_user(username: str, language: str, year: str):
 
     contrib_data = ""
 
-    days_y = calendar.Calendar().yeardayscalendar(2022, width=12)
-    for month in days_y[0]:
+    year_days = calendar.Calendar().yeardayscalendar(datetime.now().year, width=12)
+    
+    month_names = {
+        1: "January", 2: "February", 3: "March",
+        4: "April", 5: "May", 6: "June",
+        7: "July", 8: "August", 9: "September",
+        10: "October", 11: "November", 12: "December"
+    }
+    month_count = 1
+    for month in year_days[0]:
+        contrib_data += f"<div id=\"{month_names[month_count]}\">"
+        month_count += 1
+
         for week in month:
-            for i in range(7):
-                contrib_data += f"{week[i]}"
+            contrib_data += "<span class=\"Week\">"
+
+            for day in week:
+                contrib_data += f"{day}"
+
+            contrib_data += "</span>"
+
+        contrib_data += "</div>"
 
     return f"""
     <body>
