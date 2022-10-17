@@ -18,6 +18,7 @@ async def get_user(username: str, language: str, year: str):
         "ucuser": username
     }
 
+    # Request and save the data
     response = None
     try:
         response = requests.get(url=URL, params=PARAMS).json()
@@ -33,6 +34,7 @@ async def get_user(username: str, language: str, year: str):
         else:
             contrib_days[date] = contrib_days[date] + 1
 
+    # Format the data using HTML
     contrib_data = ""
 
     year_days = calendar.Calendar().yeardayscalendar(datetime.now().year, width=12)
