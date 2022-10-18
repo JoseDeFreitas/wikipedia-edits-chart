@@ -1,3 +1,8 @@
 h1 {
-    color: red;
+    color: blue;
+}
+
+#contributions-chart {
+    border: 2px solid red;
+    border-radius: 6px;
 }

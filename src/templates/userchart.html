@@ -6,8 +6,8 @@
     </head>
     <body>
         <h1>Year: {{ year }}. Contributions from user {{ username }}</h1>
-        <div id="contribution-chart">
-            {{ data }}
+        <div id="contributions-chart">
+            {{ data|safe }}
         </div>
     </body>
 </html>
