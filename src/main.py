@@ -51,16 +51,18 @@ async def get_user(request: Request, username: str, language: str, year: str):
     }
     month_count = 1
     for month in year_days[0]:
-        contrib_data += f"<div id=\"{month_names[month_count]}\">"
+        contrib_data += f"<div id=\"{month_names[month_count]}\" class=\"month\">"
         month_count += 1
 
+        week_count = 1
         for week in month:
-            contrib_data += "<span class=\"Week\">"
+            contrib_data += f"<div id=\"Week {week_count}\" class=\"week\">"
+            week_count += 1
 
             for day in week:
-                contrib_data += f"{day}"
+                contrib_data += f"<div class=\"day\">{day}</div>"
 
-            contrib_data += "</span>"
+            contrib_data += "</div>"
 
         contrib_data += "</div>"
 
@@ -68,7 +70,6 @@ async def get_user(request: Request, username: str, language: str, year: str):
         "userchart.html",
         {
             "request": request,
-            "id": id,
             "year": year,
             "username": username,
             "data": contrib_data

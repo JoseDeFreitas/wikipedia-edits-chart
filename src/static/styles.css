@@ -1,8 +1,28 @@
 h1 {
-    color: blue;
+    color: green;
 }
 
 #contributions-chart {
     border: 2px solid red;
     border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(4, max-content)
+}
+
+#contributions-chart .month {
+    display: grid;
+    grid-template-columns: repeat(7, max-content);
+}
+
+#contributions-chart .month .week {
+    display: grid;
+    grid-template-rows: repeat(7, max-content);
+}
+
+#contributions-chart .month .week .day {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 2px;
+    margin: 2px;
 }
