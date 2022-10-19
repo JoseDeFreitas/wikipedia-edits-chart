@@ -19,9 +19,7 @@ async def get_user(request: Request, username: str, language: str, year: str):
         "format": "json",
         "list": "usercontribs",
         "uclimit": 500,  # maximum allowed to request
-        "ucuser": username
-        # "ucstart": f"{year}-01-01",
-        # "ucend": f"{year}-12-31"
+        "ucuser": username,
     }
 
     # Request and save the data
