@@ -20,6 +20,8 @@ async def get_user(request: Request, username: str, language: str, year: str):
         "list": "usercontribs",
         "uclimit": 500,  # maximum allowed to request
         "ucuser": username
+        # "ucstart": f"{year}-01-01",
+        # "ucend": f"{year}-12-31"
     }
 
     # Request and save the data
@@ -52,7 +54,6 @@ async def get_user(request: Request, username: str, language: str, year: str):
     month_count = 1
     for month in year_days[0]:
         contrib_data += f"<div id=\"{month_names[month_count]}\" class=\"month\">"
-        month_count += 1
 
         week_count = 1
         for week in month:
@@ -60,13 +61,22 @@ async def get_user(request: Request, username: str, language: str, year: str):
             week_count += 1
 
             for day in week:
+                full_day = f"{year}-{month_count}-{day}"
+                repr_day = f"{month_names[month_count][:3]} {day}, {year}"
+                day_transparency = "no-transparent"
+                tooltip = f"No contributions on {repr_day}"
+
                 if day == 0:
-                    contrib_data += f"<div class=\"day yes-transparent\">{day}</div>"
-                else:
-                    contrib_data += f"<div class=\"day no-transparent\">{day}</div>"
+                    day_transparency = "yes-transparent"
+
+                if full_day in contrib_days:
+                    tooltip = f"{contrib_days[full_day]} contributions on {repr_day}"
+
+                contrib_data += f"<div class=\"day {day_transparency}\" title=\"{tooltip}\"></div>"
 
             contrib_data += "</div>"
 
+        month_count += 1
         contrib_data += "</div>"
 
     return templates.TemplateResponse(
