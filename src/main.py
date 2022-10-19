@@ -61,16 +61,20 @@ async def get_user(request: Request, username: str, language: str, year: str):
             for day in week:
                 full_day = f"{year}-{month_count}-{day}"
                 repr_day = f"{month_names[month_count][:3]} {day}, {year}"
+
                 day_transparency = "no-transparent"
+                contrib_level = "day-level-0"
                 tooltip = f"No contributions on {repr_day}"
 
                 if day == 0:
                     day_transparency = "yes-transparent"
 
+                # Match case
+
                 if full_day in contrib_days:
                     tooltip = f"{contrib_days[full_day]} contributions on {repr_day}"
 
-                contrib_data += f"<div class=\"day {day_transparency}\" title=\"{tooltip}\"></div>"
+                contrib_data += f"<div class=\"day {day_transparency} {contrib_level}\" title=\"{tooltip}\"></div>"
 
             contrib_data += "</div>"
 
