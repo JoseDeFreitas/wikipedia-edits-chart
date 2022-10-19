@@ -60,7 +60,10 @@ async def get_user(request: Request, username: str, language: str, year: str):
             week_count += 1
 
             for day in week:
-                contrib_data += f"<div class=\"day\">{day}</div>"
+                if day == 0:
+                    contrib_data += f"<div class=\"day yes-transparent\">{day}</div>"
+                else:
+                    contrib_data += f"<div class=\"day no-transparent\">{day}</div>"
 
             contrib_data += "</div>"
 
