@@ -7,7 +7,7 @@ h1 {
 }
 
 #contributions-chart {
-    border: 2px solid black;
+    border: 2px solid #999999;
     border-radius: 6px;
     display: grid;
     grid-template-columns: repeat(6, max-content);
@@ -23,7 +23,7 @@ h1 {
 #contributions-chart .month .month-title {
     margin: 4px auto;
     font-size: 14px;
-    color: black;
+    color: #4d4d4d;
 }
 
 #contributions-chart .month .month-container {
@@ -48,7 +48,7 @@ h1 {
 }
 
 .day-level-0 {
-    background-color: #ededed;
+    background-color: #ebebeb;
 }
 
 .day-level-1 {
