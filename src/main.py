@@ -52,6 +52,8 @@ async def get_user(request: Request, username: str, language: str, year: str):
     month_count = 1
     for month in year_days[0]:
         contrib_data += f"<div id=\"{month_names[month_count]}\" class=\"month\">"
+        contrib_data += f"<p class=\"month-title\">{month_names[month_count]}</p>"
+        contrib_data += "<div class=\"month-container\">"
 
         week_count = 1
         for week in month:
@@ -78,8 +80,9 @@ async def get_user(request: Request, username: str, language: str, year: str):
 
             contrib_data += "</div>"
 
-        month_count += 1
         contrib_data += "</div>"
+        contrib_data += "</div>"
+        month_count += 1
 
     return templates.TemplateResponse(
         "userchart.html",

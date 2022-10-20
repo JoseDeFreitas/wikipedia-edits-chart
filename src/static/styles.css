@@ -11,6 +11,18 @@ h1 {
 
 #contributions-chart .month {
     display: grid;
+    grid-template-rows: min-content 1fr;
+    margin: 0 10px;
+}
+
+#contributions-chart .month .month-title {
+    margin: 0 auto;
+    font-size: 16px;
+    color: red;
+}
+
+#contributions-chart .month .month-container {
+    display: grid;
     grid-template-columns: repeat(7, max-content);
 }
 
@@ -20,8 +32,8 @@ h1 {
 }
 
 #contributions-chart .month .week .day {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     border-radius: 2px;
     margin: 2px;
 }
