@@ -73,6 +73,8 @@ async def get_user(request: Request, username: str, language: str, year: str):
                     tooltip = ""
 
                 if full_day in contrib_days:
+                    tooltip = f"title=\"{contrib_days[full_day]} contributions on {repr_day}\""
+
                     if contrib_days[full_day] >= 50:
                         contrib_level = "day-level-5"
                     elif contrib_days[full_day] >= 30:
@@ -81,11 +83,11 @@ async def get_user(request: Request, username: str, language: str, year: str):
                         contrib_level = "day-level-3"
                     elif contrib_days[full_day] >= 5:
                         contrib_level = "day-level-2"
-                    elif contrib_days[full_day] >= 1:
+                    elif contrib_days[full_day] >= 2:
                         contrib_level = "day-level-1"
-
-                if full_day in contrib_days:
-                    tooltip = f"title=\"{contrib_days[full_day]} contributions on {repr_day}\""
+                    elif contrib_days[full_day] == 1:
+                        contrib_level = "day-level-1"
+                        tooltip = f"title=\"{contrib_days[full_day]} contribution on {repr_day}\""
 
                 contrib_data += f"<div class=\"day {day_transparency} {contrib_level}\" {tooltip}></div>"
 
