@@ -62,33 +62,33 @@ async def get_user(request: Request, username: str, language: str, year: str):
             contrib_data += f"<div id=\"Week {week_count}\" class=\"week\">"
 
             for day in week:
-                full_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
-                repr_day = f"{month_names[month_count][:3]} {day}, {year}"
+                number_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
+                char_day = f"{month_names[month_count][:3]} {day}, {year}"
 
                 day_transparency = ""
                 contrib_level = "day-level-0"
-                tooltip = f"No contributions on {repr_day}"
+                tooltip = f"No contributions on {char_day}"
 
                 if day == 0:
                     day_transparency = "yes-transparent"
                     tooltip = ""
 
-                if full_day in contrib_days:
-                    tooltip = f"{contrib_days[full_day]} contributions on {repr_day}"
+                if number_day in contrib_days:
+                    tooltip = f"{contrib_days[number_day]} contributions on {char_day}"
 
-                    if contrib_days[full_day] >= 50:
+                    if contrib_days[number_day] >= 50:
                         contrib_level = "day-level-5"
-                    elif contrib_days[full_day] >= 30:
+                    elif contrib_days[number_day] >= 30:
                         contrib_level = "day-level-4"
-                    elif contrib_days[full_day] >= 15:
+                    elif contrib_days[number_day] >= 15:
                         contrib_level = "day-level-3"
-                    elif contrib_days[full_day] >= 5:
+                    elif contrib_days[number_day] >= 5:
                         contrib_level = "day-level-2"
-                    elif contrib_days[full_day] >= 2:
+                    elif contrib_days[number_day] >= 2:
                         contrib_level = "day-level-1"
-                    elif contrib_days[full_day] == 1:
+                    elif contrib_days[number_day] == 1:
                         contrib_level = "day-level-1"
-                        tooltip = f"{contrib_days[full_day]} contribution on {repr_day}"
+                        tooltip = f"{contrib_days[number_day]} contribution on {char_day}"
 
                 contrib_data += f"""
                 <div class=\"day {day_transparency} {contrib_level}\">
