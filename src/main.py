@@ -20,6 +20,8 @@ async def get_user(request: Request, username: str, language: str, year: str):
         "list": "usercontribs",
         "uclimit": 500,  # maximum allowed to request
         "ucuser": username,
+        "ucstart": f"{year}-12-31T00:00:00Z",
+        "ucend": f"{year}-01-01T00:00:00Z"
     }
 
     # Request and save the data
@@ -41,7 +43,7 @@ async def get_user(request: Request, username: str, language: str, year: str):
     # Format the data using HTML
     contrib_data = ""
 
-    year_days = calendar.Calendar().yeardayscalendar(datetime.now().year, width=12)
+    year_days = calendar.Calendar().yeardayscalendar(int(year), width=12)
     
     month_names = {
         1: "January", 2: "February", 3: "March",
