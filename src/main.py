@@ -1,3 +1,4 @@
+from ast import match_case
 import requests
 import calendar
 from datetime import datetime
@@ -66,17 +67,19 @@ async def get_user(request: Request, username: str, language: str, year: str):
 
                 day_transparency = "no-transparent"
                 contrib_level = "day-level-0"
-                tooltip = f"No contributions on {repr_day}"
+                tooltip = f"title=\"No contributions on {repr_day}\""
 
                 if day == 0:
                     day_transparency = "yes-transparent"
+                    tooltip = None
 
                 # Match case
+                match_case 
 
                 if full_day in contrib_days:
-                    tooltip = f"{contrib_days[full_day]} contributions on {repr_day}"
+                    tooltip = f"title=\"{contrib_days[full_day]} contributions on {repr_day}\""
 
-                contrib_data += f"<div class=\"day {day_transparency} {contrib_level}\" title=\"{tooltip}\"></div>"
+                contrib_data += f"<div class=\"day {day_transparency} {contrib_level}\" {tooltip}></div>"
 
             contrib_data += "</div>"
 
