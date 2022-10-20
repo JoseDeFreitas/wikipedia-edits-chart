@@ -7,7 +7,7 @@ h1 {
 }
 
 #contributions-chart {
-    border: 2px solid #999999;
+    border: 2px solid #b3b3b3;
     border-radius: 6px;
     display: grid;
     grid-template-columns: repeat(6, max-content);
