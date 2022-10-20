@@ -62,10 +62,10 @@ async def get_user(request: Request, username: str, language: str, year: str):
             week_count += 1
 
             for day in week:
-                full_day = f"{year}-{month_count}-{day}"
+                full_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
                 repr_day = f"{month_names[month_count][:3]} {day}, {year}"
 
-                day_transparency = "no-transparent"
+                day_transparency = None
                 contrib_level = "day-level-0"
                 tooltip = f"title=\"No contributions on {repr_day}\""
 
@@ -73,8 +73,17 @@ async def get_user(request: Request, username: str, language: str, year: str):
                     day_transparency = "yes-transparent"
                     tooltip = None
 
-                # Match case
-                match_case 
+                if full_day in contrib_days:
+                    if contrib_days[full_day] >= 50:
+                        contrib_level = "day-level-5"
+                    elif contrib_days[full_day] >= 30:
+                        contrib_level = "day-level-4"
+                    elif contrib_days[full_day] >= 15:
+                        contrib_level = "day-level-3"
+                    elif contrib_days[full_day] >= 5:
+                        contrib_level = "day-level-2"
+                    elif contrib_days[full_day] >= 1:
+                        contrib_level = "day-level-1"
 
                 if full_day in contrib_days:
                     tooltip = f"title=\"{contrib_days[full_day]} contributions on {repr_day}\""

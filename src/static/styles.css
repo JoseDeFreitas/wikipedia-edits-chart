@@ -12,7 +12,6 @@ h1 {
 #contributions-chart .month {
     display: grid;
     grid-template-rows: min-content 1fr;
-    margin: 0 8px;
 }
 
 #contributions-chart .month .month-title {
@@ -34,14 +33,35 @@ h1 {
 #contributions-chart .month .week .day {
     width: 14px;
     height: 14px;
+    border: 1px solid black;
     border-radius: 2px;
     margin: 2px;
 }
 
-.no-transparent {
-    background-color: green;
-}
-
 .yes-transparent {
     opacity: 0;
+}
+
+.day-level-0 {
+    background-color: #ffffff;
+}
+
+.day-level-1 {
+    background-color: #ccccff;
+}
+
+.day-level-2 {
+    background-color: #9999ff;
+}
+
+.day-level-3 {
+    background-color: #6666ff;
+}
+
+.day-level-4 {
+    background-color: #3333ff;
+}
+
+.day-level-5 {
+    background-color: #0000ff;
 }
