@@ -25,27 +25,26 @@ async def get_user(request: Request, username: str, language: str, year: str):
     }
 
     # Request and save the data
-    response_continues = []
-
     response = None
     try:
         response = requests.get(url=r_url, params=r_params).json()
     except:
         print("The user couldn't be found.")
 
-    while "continue" not in response:
-        response_continues.append(response["continue"]["uccontinue"])
+    contrib_days = {}
+
+    while "continue" in response:
+        print("Found")
+        for contribution in response["query"]["usercontribs"]:
+            date = contribution["timestamp"][:10]
+
+            if date not in contrib_days.keys():
+                contrib_days[date] = 1
+            else:
+                contrib_days[date] = contrib_days[date] + 1
+
         r_params["uccontinue"] = response["continue"]["uccontinue"]
         response = requests.get(url=r_url, params=r_params).json()
-
-    contrib_days = {}
-    for contribution in response["query"]["usercontribs"]:
-        date = contribution["timestamp"][:10]
-
-        if date not in contrib_days.keys():
-            contrib_days[date] = 1
-        else:
-            contrib_days[date] = contrib_days[date] + 1
 
     # Format the data using HTML
     contrib_data = ""
