@@ -5,9 +5,11 @@
         <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
     </head>
     <body>
-        <h1>Contributions from {{ username }} in {{ year }}.</h1>
         <div id="contributions-chart">
-            {{ data|safe }}
+            <h1 id="user-and-year">{{ username }}, {{ year }}</h1>
+            <div id="year-container">
+                {{ data|safe }}
+            </div>
         </div>
     </body>
 </html>
