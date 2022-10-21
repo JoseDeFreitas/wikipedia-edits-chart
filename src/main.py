@@ -13,8 +13,8 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/{username}", response_class=HTMLResponse)
 async def get_user(request: Request, username: str, language: str, year: str):
-    URL = f"https://{language}.wikipedia.org/w/api.php"
-    PARAMS = {
+    r_url = f"https://{language}.wikipedia.org/w/api.php"
+    r_params = {
         "action": "query",
         "format": "json",
         "list": "usercontribs",
@@ -25,11 +25,18 @@ async def get_user(request: Request, username: str, language: str, year: str):
     }
 
     # Request and save the data
+    response_continues = []
+
     response = None
     try:
-        response = requests.get(url=URL, params=PARAMS).json()
+        response = requests.get(url=r_url, params=r_params).json()
     except:
         print("The user couldn't be found.")
+
+    while "continue" not in response:
+        response_continues.append(response["continue"]["uccontinue"])
+        r_params["uccontinue"] = response["continue"]["uccontinue"]
+        response = requests.get(url=r_url, params=r_params).json()
 
     contrib_days = {}
     for contribution in response["query"]["usercontribs"]:
