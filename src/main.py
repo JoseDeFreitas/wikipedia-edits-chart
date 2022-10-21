@@ -47,6 +47,13 @@ async def get_user(request: Request, username: str, language: str, year: str):
         r_params["uccontinue"] = response["continue"]["uccontinue"]
         response = requests.get(url=r_url, params=r_params).json()
 
+    max_contrib = max(contrib_days.values())
+    day_levels = []
+    last_number = max_contrib
+    for _ in range(5):
+        last_number = last_number - (max_contrib / 6)
+        day_levels.append(int(last_number))
+
     # Format the data using HTML
     contrib_data = ""
 
@@ -83,15 +90,17 @@ async def get_user(request: Request, username: str, language: str, year: str):
                 if number_day in contrib_days:
                     tooltip = f"{contrib_days[number_day]} contributions on {char_day}"
 
-                    if contrib_days[number_day] >= 50:
+                    if contrib_days[number_day] >= day_levels[0]:
+                        contrib_level = "day-level-6"
+                    elif contrib_days[number_day] >= day_levels[1]:
                         contrib_level = "day-level-5"
-                    elif contrib_days[number_day] >= 30:
+                    elif contrib_days[number_day] >= day_levels[2]:
                         contrib_level = "day-level-4"
-                    elif contrib_days[number_day] >= 15:
+                    elif contrib_days[number_day] >= day_levels[3]:
                         contrib_level = "day-level-3"
-                    elif contrib_days[number_day] >= 5:
+                    elif contrib_days[number_day] >= day_levels[4]:
                         contrib_level = "day-level-2"
-                    elif contrib_days[number_day] >= 2:
+                    elif contrib_days[number_day] < day_levels[4] and contrib_days[number_day] > 1:
                         contrib_level = "day-level-1"
                     elif contrib_days[number_day] == 1:
                         contrib_level = "day-level-1"

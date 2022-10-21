@@ -74,7 +74,7 @@ h1 {
 }
 
 .day-level-1 {
-    background-color: #ccccff;
+    background-color: #bfbfff;
 }
 
 .day-level-2 {
@@ -82,13 +82,17 @@ h1 {
 }
 
 .day-level-3 {
-    background-color: #6666ff;
+    background-color: #7373ff;
 }
 
 .day-level-4 {
-    background-color: #3333ff;
+    background-color: #4d4dff;
 }
 
 .day-level-5 {
+    background-color: #2626ff;
+}
+
+.day-level-6 {
     background-color: #0000ff;
 }
