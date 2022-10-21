@@ -33,8 +33,7 @@ async def get_user(request: Request, username: str, language: str, year: str):
 
     contrib_days = {}
 
-    while "continue" in response:
-        print("Found")
+    while True:
         for contribution in response["query"]["usercontribs"]:
             date = contribution["timestamp"][:10]
 
@@ -42,6 +41,9 @@ async def get_user(request: Request, username: str, language: str, year: str):
                 contrib_days[date] = 1
             else:
                 contrib_days[date] = contrib_days[date] + 1
+
+        if "continue" not in response:
+            break
 
         r_params["uccontinue"] = response["continue"]["uccontinue"]
         response = requests.get(url=r_url, params=r_params).json()
