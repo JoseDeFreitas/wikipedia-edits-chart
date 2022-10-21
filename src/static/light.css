@@ -1,0 +1,21 @@
+.day-level-0 {
+    background-color: #ebebeb;
+}
+
+#contributions-chart {
+    background-color: #ffffff;
+    border: 2px solid #b3b3b3;
+}
+
+#user-and-year {
+    color: #191919;
+}
+
+.month .month-title {
+    color: #4d4d4d;
+}
+
+.day .tooltip-text {
+    background-color: #333333;
+    color: #ffffff;
+}

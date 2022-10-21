@@ -4,10 +4,6 @@ body {
     font-family: Verdana, sans-serif;
 }
 
-h1 {
-    color: black;
-}
-
 /* Unique */
 
 #not-found {
@@ -17,10 +13,6 @@ h1 {
 
 .yes-transparent {
     visibility: hidden;
-}
-
-.day-level-0 {
-    background-color: #ebebeb;
 }
 
 .day-level-1 {
@@ -50,7 +42,6 @@ h1 {
 /* Structured */
 
 #contributions-chart {
-    border: 2px solid #b3b3b3;
     border-radius: 6px;
     display: grid;
     grid-template-rows: min-content 1fr;
@@ -60,7 +51,6 @@ h1 {
 
 #user-and-year {
     font-size: 18px;
-    color: #191919;
     justify-self: center;
     margin: 0 0 10px;
 }
@@ -78,7 +68,6 @@ h1 {
 .month .month-title {
     margin: 4px auto;
     font-size: 14px;
-    color: #4d4d4d;
 }
 
 .month .month-container {
@@ -105,8 +94,6 @@ h1 {
     bottom: 130%;
     left: 50%;
     margin-left: -110px;
-    background-color: #333333;
-    color: #ffffff;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;

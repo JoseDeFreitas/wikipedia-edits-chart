@@ -11,7 +11,10 @@ templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/{username}", response_class=HTMLResponse)
-async def get_user(request: Request, username: str, language: str, year: str):
+async def get_user(
+    request: Request, username: str, language: str,
+    year: str, appearance: str = "light"
+    ):
     r_url = f"https://{language}.wikipedia.org/w/api.php"
     r_params = {
         "action": "query",
@@ -133,12 +136,15 @@ async def get_user(request: Request, username: str, language: str, year: str):
         contrib_data += "</div>"
         month_count += 1
 
+    colour_mode = f"/{appearance}.css"
+
     return templates.TemplateResponse(
         "userchart.html",
         {
             "request": request,
             "year": year,
             "username": username,
-            "data": contrib_data
+            "data": contrib_data,
+            "appearance": colour_mode
         }
     )
