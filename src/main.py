@@ -30,8 +30,19 @@ async def get_user(request: Request, username: str, language: str, year: str):
     except:
         print("The user couldn't be found.")
 
-    contrib_days = {}
+    if len(response["query"]["usercontribs"]) == 0:
 
+        return templates.TemplateResponse(
+            "userchart.html",
+            {
+                "request": request,
+                "year": year,
+                "username": username,
+                "data": "<p id=\"not-found\">No data was found for this period of time.</p>"
+            }
+        )
+
+    contrib_days = {}
     while True:
         for contribution in response["query"]["usercontribs"]:
             date = contribution["timestamp"][:10]

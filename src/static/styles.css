@@ -96,3 +96,8 @@ h1 {
 .day-level-6 {
     background-color: #0000ff;
 }
+
+#not-found {
+    font-size: 18px;
+    color: red;
+}
