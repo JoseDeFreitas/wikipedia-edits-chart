@@ -1,6 +1,5 @@
 import requests
 import calendar
-from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
