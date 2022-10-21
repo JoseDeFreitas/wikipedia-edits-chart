@@ -78,13 +78,15 @@ async def get_user(request: Request, username: str, language: str, year: str):
     }
     month_count = 1
     for month in year_days[0]:
-        contrib_data += f"<div id=\"{month_names[month_count]}\" class=\"month\">"
+        lower_month = month_names[month_count].lower()
+
+        contrib_data += f"<div id=\"{lower_month}\" class=\"month\">"
         contrib_data += f"<p class=\"month-title\">{month_names[month_count]}</p>"
         contrib_data += "<div class=\"month-container\">"
 
         week_count = 1
         for week in month:
-            contrib_data += f"<div id=\"Week {week_count}\" class=\"week\">"
+            contrib_data += f"<div id=\"{lower_month}-week-{week_count}\" class=\"week\">"
 
             for day in week:
                 number_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
