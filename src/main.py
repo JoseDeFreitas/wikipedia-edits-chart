@@ -92,12 +92,13 @@ async def get_user(request: Request, username: str, language: str, year: str):
                 number_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
                 char_day = f"{month_names[month_count][:3]} {day}, {year}"
 
-                day_transparency = ""
+                day_transparency = "no-transparent"
                 contrib_level = "day-level-0"
                 tooltip = f"No contributions on {char_day}"
 
                 if day == 0:
                     day_transparency = "yes-transparent"
+                    contrib_level = ""
                     tooltip = ""
 
                 if number_day in contrib_days:
@@ -120,7 +121,7 @@ async def get_user(request: Request, username: str, language: str, year: str):
                         tooltip = f"{contrib_days[number_day]} contribution on {char_day}"
 
                 contrib_data += f"""
-                <div class=\"day {day_transparency} {contrib_level}\">
+                <div class=\"day {contrib_level} {day_transparency}\">
                     <span class=\"tooltip-text\">{tooltip}</span>
                 </div>
                 """
