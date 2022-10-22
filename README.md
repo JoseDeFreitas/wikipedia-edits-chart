@@ -1,1 +1,1 @@
-# WikipediaContributionsChart
+# WikipediaEditsChart
