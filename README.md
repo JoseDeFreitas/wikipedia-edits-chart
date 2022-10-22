@@ -27,8 +27,8 @@ look cool.
 
 ## Example
 
-![WikipediaEditsChart example in light mode](https://user-images.githubusercontent.com/37962411/197352254-ced67731-235d-4a14-9bbc-97e0f85f6774.png "In light mode")
-![WikipediaEditsChart example in dark mode](https://user-images.githubusercontent.com/37962411/197352275-e405b1fc-3d49-4a4f-b95c-2165ffad44c6.png "In dark mode")
+<img alt="WikipediaEditsChart example in light mode" src="https://user-images.githubusercontent.com/37962411/197352254-ced67731-235d-4a14-9bbc-97e0f85f6774.png" title="In light mode" height="420"/>
+<img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/197352275-e405b1fc-3d49-4a4f-b95c-2165ffad44c6.png" title="In dark mode" height="420"/>
 
 ## Usage
 
