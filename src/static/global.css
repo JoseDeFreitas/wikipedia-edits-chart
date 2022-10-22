@@ -7,7 +7,7 @@ body {
 /* Unique */
 
 #not-found {
-    font-size: 18px;
+    font-size: 20px;
     color: red;
 }
 
@@ -44,20 +44,21 @@ body {
 #contributions-chart {
     border-radius: 6px;
     display: grid;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: min-content 1fr min-content;
     width: min-content;
-    padding: 5px;
 }
 
 #user-and-year {
-    font-size: 18px;
+    font-size: 20px;
     justify-self: center;
-    margin: 0 0 10px;
+    margin: 0 0 5px;
+    padding: 5px 5px 0;
 }
 
 #year-container {
     display: grid;
     grid-template-columns: repeat(6, max-content);
+    padding: 5px;
 }
 
 .month {
@@ -105,4 +106,27 @@ body {
 
 .day:hover .tooltip-text {
     visibility: visible;
+}
+
+#additional-info {
+    font-size: 16px;
+    margin: 5px 0 0;
+    padding: 8px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#additional-info div {
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+}
+
+#additional-info svg {
+    fill: #4d4dff;
+}
+
+#additional-info span {
+    margin: 5px 0 0 5px;
+    font-size: 16px;
 }

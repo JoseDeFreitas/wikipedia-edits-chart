@@ -1,5 +1,6 @@
 import requests
 import calendar
+from datetime import datetime, timedelta
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -60,6 +61,18 @@ async def get_user(
 
         r_params["uccontinue"] = response["continue"]["uccontinue"]
         response = requests.get(url=r_url, params=r_params).json()
+
+    total_contribs = sum(contrib_days.values())
+    streak_contribs = 0
+
+    last = datetime.now()
+    while True:
+        yesterday = last - timedelta(days=1)
+        if str(yesterday)[:10] in contrib_days:
+            streak_contribs += 1
+            last = yesterday
+        else:
+            break
 
     max_contrib = max(contrib_days.values())
     day_levels = []
@@ -145,6 +158,8 @@ async def get_user(
             "year": year,
             "username": username,
             "data": contrib_data,
-            "appearance": colour_mode
+            "appearance": colour_mode,
+            "total": total_contribs,
+            "streak": streak_contribs
         }
     )

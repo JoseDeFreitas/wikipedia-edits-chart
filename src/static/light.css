@@ -23,3 +23,11 @@ body {
     background-color: #333333;
     color: #ffffff;
 }
+
+#additional-info {
+    background-color: #ebebeb;
+}
+
+#additional-info div span {
+    color: #191919;
+}
