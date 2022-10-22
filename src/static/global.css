@@ -49,16 +49,22 @@ body {
 }
 
 #user-and-year {
-    font-size: 20px;
     justify-self: center;
     margin: 0 0 5px;
-    padding: 5px 5px 0;
+    padding: 0 14px;
+}
+
+#user-and-year h1 {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 0 0 6px 6px;
 }
 
 #year-container {
     display: grid;
     grid-template-columns: repeat(6, max-content);
-    padding: 5px;
+    padding: 5px 15px;
 }
 
 .month {

@@ -7,7 +7,9 @@
     </head>
     <body>
         <div id="contributions-chart">
-            <h1 id="user-and-year">Edits from {{ username }} in {{ year }}</h1>
+            <div id="user-and-year">
+                <h1>Edits from {{ username }} in {{ year }}</h1>
+            </div>
             <div id="year-container">
                 {{ data|safe }}
             </div>
