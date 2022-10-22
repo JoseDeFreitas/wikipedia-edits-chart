@@ -62,6 +62,7 @@ async def get_user(
         r_params["uccontinue"] = response["continue"]["uccontinue"]
         response = requests.get(url=r_url, params=r_params).json()
 
+    # Calculate longest and current streak
     total_contribs = sum(contrib_days.values())
     streak_number = 0
     streak_contribs = ""
@@ -93,6 +94,7 @@ async def get_user(
 
         streak_contribs = f"Longest streak: {streak_number}"
 
+    # Calculate total number of edits made in the year
     max_contrib = max(contrib_days.values())
     day_levels = []
     last_number = max_contrib
