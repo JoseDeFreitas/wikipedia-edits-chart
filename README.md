@@ -49,7 +49,7 @@ list of the available path and query parameters, as well as some examples.
 - See the edits from Jimbo Wales in the English Wikipedia in 2020:
     - [website]/Jimbo Wales?language=en&year=2020
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
-    - [website]/Jimbo Wales?language=en&year=2020&appearance=dark
+    - [website]/Jimbo Wales?language=en&year=2022&appearance=dark
 
 ## Remarks
 
