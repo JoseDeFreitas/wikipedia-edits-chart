@@ -63,16 +63,35 @@ async def get_user(
         response = requests.get(url=r_url, params=r_params).json()
 
     total_contribs = sum(contrib_days.values())
-    streak_contribs = 0
+    streak_number = 0
+    streak_contribs = ""
 
-    last = datetime.now()
-    while True:
-        yesterday = last - timedelta(days=1)
-        if str(yesterday)[:10] in contrib_days:
-            streak_contribs += 1
-            last = yesterday
-        else:
-            break
+    if year == str(datetime.now().year):
+        last = datetime.now()
+        while True:
+            yesterday = last - timedelta(days=1)
+            if str(yesterday)[:10] in contrib_days:
+                streak_number += 1
+                last = yesterday
+            else:
+                break
+
+        streak_contribs = f"Current streak: {streak_number}"
+    else:
+        streak_count = 0
+        last = datetime.strptime(list(contrib_days.keys())[0], "%Y-%m-%d")
+        for day in range(len(list(contrib_days.keys()))):
+            if str(last)[:10] in contrib_days:
+                last = last - timedelta(days=1)
+                streak_count += 1
+
+                if (streak_number < streak_count):
+                    streak_number = streak_count
+            else:
+                last = datetime.strptime(list(contrib_days.keys())[day], "%Y-%m-%d") - timedelta(days=1)
+                streak_count = 1
+
+        streak_contribs = f"Longest streak: {streak_number}"
 
     max_contrib = max(contrib_days.values())
     day_levels = []
