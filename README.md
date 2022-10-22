@@ -16,7 +16,7 @@ force you to keep contributing (even if you don't want to) or preserve a streak
 that is, pretty much, useless. This
 may not seem like an issue, but I do believe it's wrong to make a change (in
 any website) just to keep the chart "pretty". It's not that of a big deal as
-it's up to you to not pay attention to the chart and stop doing useless changes
+it's up to you not to pay attention to the chart and stop doing useless changes
 but it's still an incentive to do so.
 
 I didn't code this API for people to make it part of their contribution
