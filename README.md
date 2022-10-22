@@ -46,12 +46,12 @@ list of the available path and query parameters, as well as some examples.
 
 ### List of examples
 
-- See the contributions from Jimbo Wales in the English Wikipedia in 2020:
+- See the edits from Jimbo Wales in the English Wikipedia in 2020:
     - [website]/Jimbo Wales?language=en&year=2020
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
     - [website]/Jimbo Wales?language=en&year=2020&appearance=dark
 
 ## Remarks
 
-[^1]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias). Wikimedia uses a combination of standards to define the code languages. Here is a [list of code languages](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
+[^1]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias). Wikimedia uses a combination of standards to define the language codes. Here is a [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
 [^2]: The default value is "light". You can specify it explicitly or leave it. If you want the dark mode, you need to specify it explicitly.
