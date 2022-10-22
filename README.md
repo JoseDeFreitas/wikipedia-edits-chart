@@ -3,9 +3,9 @@
 **The API can't be used for now, as it's not uploaded into any web server.**
 
 This is a little program that prints a chart, in the form of a calendar (based
-on the year you select), that shows the days a specified user contributed to a
+on the year you choose), that shows the days a specified user contributed to a
 specific Wikipedia project (that is, a specific Wikipedia language) and the
-quantity of the edits they made in that current day. The API also counts the
+quantity of the edits they made in that day. The API also counts the
 total amount of edits made in a year and the current (for the current year) or
 the longest (for any other year) streak of edits. Head to the [Example](#example)
 section to see how does it look. **The contribution chart from GitHub was my inspiration.**
