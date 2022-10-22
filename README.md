@@ -21,8 +21,8 @@ but it's still an incentive to do so.
 
 I didn't code this API for people to make it part of their contribution
 schedule to Wikipedia, where what people should do is contribute when they have
-something good to provide. It's counter-intuitive creating a project like this
-when you don't especially like it. However, here it is. I can't say it doesn't
+something good to provide. Creating a project that you don't especially like is counter-intuitive.
+However, here it is. I can't say it doesn't
 look cool, to be honest.
 
 ## Example
