@@ -12,18 +12,18 @@ section to see how does it look. **The contribution chart from GitHub was my ins
 
 Charts like this exist in some websites. Although they look cool, I don't think
 they provide anything useful, and, in some cases, I believe they're noxious as
-force you to keep contributing (even if you don't want to) or preserve the streak,
-that is useless and serves only for you to say "Oh, this looks pretty". This
+force you to keep contributing (even if you don't want to) or preserve a streak
+that is, pretty much, useless. This
 may not seem like an issue, but I do believe it's wrong to make a change (in
 any website) just to keep the chart "pretty". It's not that of a big deal as
-it's on you to not pay attention to the chart and stop doing any useless
-change, but it's still an incentive to do this.
+it's up to you to not pay attention to the chart and stop doing useless changes
+but it's still an incentive to do so.
 
-I didn't make this API for people to make it a part of their contribution
+I didn't code this API for people to make it part of their contribution
 schedule to Wikipedia, where what people should do is contribute when they have
 something good to provide. It's counter-intuitive creating a project like this
 when you don't especially like it. However, here it is. I can't say it doesn't
-look cool.
+look cool, to be honest.
 
 ## Example
 
