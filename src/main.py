@@ -27,6 +27,8 @@ async def get_user(
         "ucend": f"{year}-01-01T00:00:00Z"
     }
 
+    colour_mode = f"/{appearance}.css"
+
     # Request and save the data
     response = None
     try:
@@ -42,7 +44,8 @@ async def get_user(
                 "request": request,
                 "year": year,
                 "username": username,
-                "data": "<p id=\"not-found\">No data was found for this period of time.</p>"
+                "data": "<p id=\"not-found\">No data was found for this period of time.</p>",
+                "appearance": colour_mode
             }
         )
 
@@ -169,8 +172,6 @@ async def get_user(
         contrib_data += "</div>"
         contrib_data += "</div>"
         month_count += 1
-
-    colour_mode = f"/{appearance}.css"
 
     return templates.TemplateResponse(
         "userchart.html",
