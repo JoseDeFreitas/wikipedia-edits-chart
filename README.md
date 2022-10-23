@@ -1,4 +1,4 @@
-# WikipediaEditsChart
+# Wikipedia Edits Chart
 
 **The API can't be used for now, as it's not uploaded into any web server.**
 
