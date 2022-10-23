@@ -3,12 +3,12 @@
 **The API can't be used for now, as it's not uploaded into any web server.**
 
 This is a little program that prints a chart, in the form of a calendar (based
-on the year you choose), that shows the days a specified user contributed to a
+on the year you choose),[^1] that shows the days a specified user contributed to a
 specific Wikipedia project (that is, a specific Wikipedia language) and the
 quantity of the edits they made in that day. The API also counts the total
-amount of edits made in a year and the current (for the current year) or the
-longest (for any other year) streak of edits. Head to the [Example](#example)
-section to see how does it look. **The contribution chart from GitHub was my inspiration.**
+amount of edits made in a year and the streak of edits.[^2] Head to the
+[Example](#example) section to see how does it look. **The contribution chart from
+GitHub was my inspiration.**
 
 Charts like this exist in some websites. Although they look cool, I don't think
 they provide anything useful, and, in some cases, I believe they're noxious as
@@ -39,9 +39,9 @@ and query parameters, as well as some examples.
 | Parameter      | Type            | Example                                                               | Required |
 | ----------     | --------------- | --------------------------------------------------------------------- | -------- |
 | username       | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
-| language[^1]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
+| language[^3]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
 | year           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
-| appearance[^2] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
+| appearance[^4] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
 
 ### List of examples
 
@@ -52,5 +52,25 @@ and query parameters, as well as some examples.
 
 ## Remarks
 
-[^1]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias). Wikimedia uses a combination of standards to define the language codes. Here is a [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
-[^2]: The default value is "light". You can specify it explicitly or leave it. If you want the dark mode, you need to specify it explicitly.
+- The limit of edits to retrieve is 500 per request, as stated in the
+["Usercontribs" API section](https://www.mediawiki.org/wiki/API:Usercontribs) of
+the [Mediawiki Action API](https://www.mediawiki.org/wiki/API:Main_page).
+The output JSON contains a value that you can use to continue the retrieval of
+the data if the number of edits exceeds 500; however, it has to make another
+request, and, because the program loops one by one through all of the edits
+(as [Wikimedia asks you to not make the requests in parallel](https://www.mediawiki.org/wiki/API:Etiquette)),
+it may take some seconds for users that have made many edits. Based on some
+requests I made, it takes roughly 500ms per 1000 edits.
+
+[^1]: The shapes of the months are different from one another because, instead of
+printing the days as GitHub does, it prints them like a normal calendar. You can
+see the day of the week by counting the row the day is in. It starts at Monday and
+finishes at Sunday.
+[^2]: If you choose the current year, it will print the current streak. If you
+choose any other year that has already passed, it will print the longest streak
+made.
+[^3]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
+Wikimedia uses a combination of standards to define the language codes. Here is a
+[list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
+[^4]: The default value is "light". You can specify it explicitly or leave it. If
+you want the dark mode, you need to specify it explicitly.
