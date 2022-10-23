@@ -70,9 +70,10 @@ finishes at Sunday.
 [^2]: If you choose the current year, it will print the current streak. If you
 choose any other year that has already passed, it will print the longest streak
 made.
-[^3]: When no one has made a request in some time, Glitch (the host I'm using)
-turns off the website. In this case, you'll need to wait some seconds for the
-chart to appear.
+[^3]: When no one has made a request to the website in 5 minutes, Glitch (the host
+I'm using) turns off the website. In this case, you'll need to wait some seconds for
+the chart to appear. There is also a [limited amount of hours per month](https://help.glitch.com/kb/article/17-technical-restrictions/)
+for the free plan (which is the one I'm using).
 [^4]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
 Wikimedia uses a combination of standards to define the language codes. Here is a
 [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
