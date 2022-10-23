@@ -5,8 +5,8 @@ on the year you choose),[^1] that shows the days a specified user contributed to
 specific Wikipedia project (that is, a specific Wikipedia language) and the
 quantity of the edits they made in that day. The API also counts the total
 amount of edits made in a year and the streak of edits.[^2] Head to the
-[Example](#example) section to see how does it look. **The contribution chart from
-GitHub was my inspiration.**
+[Screenshots](#screenshots) section to see how does it look. **The contribution
+chart from GitHub was my inspiration.**
 
 Charts like this exist in some websites. Although they look cool, I don't think
 they provide anything useful, and, in some cases, I believe they're noxious as
