@@ -36,19 +36,19 @@ and query parameters, as well as some examples.
 
 ### List of parameters
 
-| Parameter      | Type            | Example                                                             | Required |
-| ----------     | --------------- | ------------------------------------------------------------------- | -------- |
-| username       | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo Wales                 | yes      |
-| language[^1]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo Wales?language=en     | yes      |
-| year           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo Wales?year=2022       | yes      |
-| appearance[^2] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo Wales?appearance=dark | no       |
+| Parameter      | Type            | Example                                                               | Required |
+| ----------     | --------------- | --------------------------------------------------------------------- | -------- |
+| username       | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
+| language[^1]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
+| year           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
+| appearance[^2] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
 
 ### List of examples
 
 - See the edits from Jimbo Wales in the English Wikipedia in 2020:
-    - https://wikipedia-edits-chart.glitch.me/Jimbo Wales?language=en&year=2020
+    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2020
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
-    - https://wikipedia-edits-chart.glitch.me/Jimbo Wales?language=en&year=2022&appearance=dark
+    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&appearance=dark
 
 ## Remarks
 
