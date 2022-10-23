@@ -23,7 +23,7 @@ to Wikipedia, where what people should do is contribute when they have something
 good to provide. Creating a project that you don't especially like is counter-intuitive.
 However, here it is. I can't say it doesn't look cool, to be honest.
 
-## Example
+## Screenshots
 
 <img alt="WikipediaEditsChart example in light mode" src="https://user-images.githubusercontent.com/37962411/197352254-ced67731-235d-4a14-9bbc-97e0f85f6774.png" title="In light mode" height="420"/>
 <img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/197353347-404a9148-8ac0-452c-8276-e14cc5109f38.png" title="In dark mode" height="409"/>
@@ -34,7 +34,7 @@ To get the chart, simply go to **https://wikipedia-edits-chart.glitch.me** and
 add the required parameters. Below you can find the list of the available path
 and query parameters, as well as some examples.
 
-### List of parameters
+### Parameters
 
 | Parameter      | Type            | Example                                                               | Required |
 | ----------     | --------------- | --------------------------------------------------------------------- | -------- |
@@ -43,7 +43,7 @@ and query parameters, as well as some examples.
 | year           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
 | appearance[^4] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
 
-### List of examples
+### Examples
 
 - See the edits from Jimbo Wales in the English Wikipedia in 2020:
     - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2020
