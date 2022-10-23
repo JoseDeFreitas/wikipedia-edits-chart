@@ -31,7 +31,7 @@ However, here it is. I can't say it doesn't look cool, to be honest.
 ## Usage
 
 To get the chart, simply go to **https://wikipedia-edits-chart.glitch.me** and
-add the required parameters. Below you can find the list of the available path
+add the required parameters.[^3] Below you can find the list of the available path
 and query parameters, as well as some examples.
 
 ### Parameters
@@ -39,9 +39,9 @@ and query parameters, as well as some examples.
 | Parameter      | Type            | Example                                                               | Required |
 | ----------     | --------------- | --------------------------------------------------------------------- | -------- |
 | username       | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
-| language[^3]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
+| language[^4]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
 | year           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
-| appearance[^4] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
+| appearance[^5] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
 
 ### Examples
 
@@ -69,8 +69,11 @@ finishes at Sunday.
 [^2]: If you choose the current year, it will print the current streak. If you
 choose any other year that has already passed, it will print the longest streak
 made.
-[^3]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
+[^3]: When no one has made a request in some time, Glitch (the host I'm using)
+turns off the website. In this case, you'll need to wait some seconds for the
+chart to appear.
+[^4]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
 Wikimedia uses a combination of standards to define the language codes. Here is a
 [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
-[^4]: The default value is "light". You can specify it explicitly or leave it. If
+[^5]: The default value is "light". You can specify it explicitly or leave it. If
 you want the dark mode, you need to specify it explicitly.
