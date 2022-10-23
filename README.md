@@ -63,7 +63,7 @@ it may take some seconds for users that have made many edits. Based on some
 requests I made, it takes roughly 500ms per 1000 edits. **Please, don't overwhelm
 the API**.
 
-[^1]: The shapes of the months are different from one another because, instead of
+[^1]: The shape of the months are different from one another because, instead of
 printing the days as GitHub does, it prints them like a normal calendar. You can
 see the day of the week by counting the row the day is in. It starts at Monday and
 finishes at Sunday.
