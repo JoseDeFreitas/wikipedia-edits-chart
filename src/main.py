@@ -37,15 +37,11 @@ async def get_user(
         print("The user couldn't be found.")
 
     if len(response["query"]["usercontribs"]) == 0:
-
         return templates.TemplateResponse(
-            "userchart.html",
+            "nodata.html",
             {
                 "request": request,
-                "year": year,
-                "username": username,
-                "data": "<p id=\"not-found\">No data was found for this period of time.</p>",
-                "appearance": colour_mode
+                "data": "<p id=\"not-found\">No data was found for this user for this period of time.</p>",
             }
         )
 
