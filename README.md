@@ -60,7 +60,8 @@ the data if the number of edits exceeds 500; however, it has to make another
 request, and, because the program loops one by one through all of the edits
 (as [Wikimedia asks you to not make the requests in parallel](https://www.mediawiki.org/wiki/API:Etiquette)),
 it may take some seconds for users that have made many edits. Based on some
-requests I made, it takes roughly 500ms per 1000 edits.
+requests I made, it takes roughly 500ms per 1000 edits. **Please, don't overwhelm
+the API**.
 
 [^1]: The shapes of the months are different from one another because, instead of
 printing the days as GitHub does, it prints them like a normal calendar. You can
