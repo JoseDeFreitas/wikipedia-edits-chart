@@ -14,7 +14,7 @@ force you to keep contributing (even if you don't want to) or preserve a streak
 that is, pretty much, useless. This may not seem like an issue, but I do believe
 it's wrong to make a change (in any website) just to keep the chart "pretty".
 It's not that of a big deal as it's up to you not to pay attention to the chart
-and stop doing useless changes but it's still an incentive to do so.
+and stop doing useless changes, but it's still an incentive to do so.
 
 I didn't code this API for people to make it part of their contribution schedule
 to Wikipedia, where what people should do is contribute when they have something
@@ -56,7 +56,7 @@ and query parameters, as well as some examples.
 ["Usercontribs" API section](https://www.mediawiki.org/wiki/API:Usercontribs) of
 the [Mediawiki Action API](https://www.mediawiki.org/wiki/API:Main_page).
 The output JSON contains a value that you can use to continue the retrieval of
-the data if the number of edits exceeds 500; however, it has to make another
+the data if the number of edits exceeds the limit; however, it has to make another
 request, and, because the program loops one by one through all of the edits
 (as [Wikimedia asks you to not make the requests in parallel](https://www.mediawiki.org/wiki/API:Etiquette)),
 it may take some seconds for users that have made many edits. Based on some
