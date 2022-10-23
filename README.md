@@ -32,7 +32,9 @@ However, here it is. I can't say it doesn't look cool, to be honest.
 
 To get the chart, simply go to **https://wikipedia-edits-chart.glitch.me** and
 add the required parameters.[^3] Below you can find the list of the available path
-and query parameters, as well as some examples.
+and query parameters, as well as some examples. If the user couldn't be found or
+there is no edits for the choosen year, the API will let you know with a red
+message.
 
 ### Parameters
 
