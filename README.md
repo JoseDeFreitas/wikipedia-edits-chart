@@ -23,8 +23,8 @@ However, here it is. I can't say it doesn't look cool, to be honest.
 
 ## Screenshots
 
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021"><img alt="WikipediaEditsChart example in light mode" src="https://user-images.githubusercontent.com/37962411/197352254-ced67731-235d-4a14-9bbc-97e0f85f6774.png" title="In light mode" height="420"/></a>
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&appearance=dark"><img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/197353347-404a9148-8ac0-452c-8276-e14cc5109f38.png" title="In dark mode" height="409"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021"><img alt="WikipediaEditsChart example in light mode" src="https://user-images.githubusercontent.com/37962411/197352254-ced67731-235d-4a14-9bbc-97e0f85f6774.png" title="In light mode" height="404"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&appearance=dark"><img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/197353347-404a9148-8ac0-452c-8276-e14cc5109f38.png" title="In dark mode" height="393"/></a>
 
 *You can hover over each day to see the amount of edits in that day*.
 
