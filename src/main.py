@@ -69,10 +69,9 @@ async def get_user(
     if year == str(datetime.now().year):
         last = datetime.now()
         while True:
-            yesterday = last - timedelta(days=1)
-            if str(yesterday)[:10] in contrib_days:
+            if str(last)[:10] in contrib_days:
                 streak_number += 1
-                last = yesterday
+                last = last - timedelta(days=1)
             else:
                 break
 
