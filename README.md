@@ -59,7 +59,7 @@ other websites) using the [`<iframe>`](https://developer.mozilla.org/en-US/docs/
 tag from HTML:
 
 ```html
-<iframe src="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021" width="625" height="421"></iframe>
+<iframe src="CHART_URL" width="625" height="421"></iframe>
 ```
 
 625 of width and 421 of height looks good enough to show only the chart, but you
