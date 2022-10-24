@@ -1,5 +1,7 @@
 # Wikipedia Edits Chart
 
+<a href="https://www.producthunt.com/products/wikipedia-edits-chart/reviews?utm_source=badge-product_review&utm_medium=badge&utm_souce=badge-wikipedia&#0045;edits&#0045;chart" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=503151&theme=light" alt="Wikipedia&#0032;Edits&#0032;Chart - API&#0032;to&#0032;get&#0032;a&#0032;chart&#0032;of&#0032;the&#0032;edits&#0032;made&#0032;by&#0032;any&#0032;Wikipedia&#0032;user | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 This is a little program that prints a chart, in the form of a calendar (based
 on the year you choose),[^1] that shows the days a specified user contributed to a
 specific Wikipedia project (that is, a specific Wikipedia language) and the
