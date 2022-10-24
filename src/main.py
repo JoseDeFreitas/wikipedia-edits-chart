@@ -117,7 +117,7 @@ async def get_user(
         lower_month = month_names[month_count].lower()
 
         contrib_data += f"<div id=\"{lower_month}\" class=\"month\">"
-        contrib_data += f"<p class=\"month-title\">{month_names[month_count]}</p>"
+        contrib_data += f"<h2 class=\"month-title\">{month_names[month_count]}</h2>"
         contrib_data += "<div class=\"month-container\">"
 
         week_count = 1
