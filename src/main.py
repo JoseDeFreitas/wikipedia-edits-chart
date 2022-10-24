@@ -81,8 +81,8 @@ async def get_user(
         last = datetime.strptime(list(contrib_days.keys())[0], "%Y-%m-%d")
         for day in range(len(list(contrib_days.keys()))):
             if str(last)[:10] in contrib_days:
-                last = last - timedelta(days=1)
                 streak_count += 1
+                last = last - timedelta(days=1)
 
                 if (streak_number < streak_count):
                     streak_number = streak_count
