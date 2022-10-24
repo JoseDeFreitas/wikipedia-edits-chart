@@ -62,7 +62,7 @@ tag from HTML:
 <iframe src="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021" width="625" height="421"></iframe>
 ```
 
-625 of width and 421 of height looks good enough to only show the chart, but you
+625 of width and 421 of height looks good enough to show only the chart, but you
 can tweak these values as you want.
 
 ## Remarks
