@@ -52,6 +52,19 @@ message.
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
     - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&appearance=dark
 
+### Embedding
+
+You can embed the chart in your website (or any website that allows for embedding
+other websites) using the [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+tag from HTML:
+
+```html
+<iframe src="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021" width="625" height="421"></iframe>
+```
+
+625 of width and 421 of height looks good enough to only show the chart, but you
+can tweak these values as you want.
+
 ## Remarks
 
 - The limit of edits to retrieve is 500 per request, as stated in the
