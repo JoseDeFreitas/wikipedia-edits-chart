@@ -121,7 +121,7 @@ body {
     margin: 5px 0 0;
     padding: 8px 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 #additional-info div {
