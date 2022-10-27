@@ -1,6 +1,7 @@
 import requests
 import calendar
 from datetime import datetime, timedelta
+import json
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -26,6 +27,13 @@ async def get_user(
         "ucstart": f"{year}-12-31T00:00:00Z",
         "ucend": f"{year}-01-01T00:00:00Z"
     }
+
+    with open("external.json", "r") as json_read:
+        json_data = json.load(json_read)
+
+    month_names = json_data["month-names"]
+    # Taken from https://gist.github.com/jrnk/8eb57b065ea0b098d571?permalink_comment_id=4302928#gistcomment-4302928
+    language_codes = json_data["language-codes"]
 
     colour_mode = f"/{appearance}.css"
 
@@ -106,19 +114,13 @@ async def get_user(
     # Format the data using HTML
     edit_data = ""
     year_days = calendar.Calendar().yeardayscalendar(int(year), width=12)
-    month_names = {
-        1: "January", 2: "February", 3: "March",
-        4: "April", 5: "May", 6: "June",
-        7: "July", 8: "August", 9: "September",
-        10: "October", 11: "November", 12: "December"
-    }
 
     month_count = 1
     for month in year_days[0]:
-        lower_month = month_names[month_count].lower()
+        lower_month = month_names[str(month_count)].lower()
 
         edit_data += f"<div id=\"{lower_month}\" class=\"month\">"
-        edit_data += f"<h2 class=\"month-title\">{month_names[month_count]}</h2>"
+        edit_data += f"<h2 class=\"month-title\">{month_names[str(month_count)]}</h2>"
         edit_data += "<div class=\"month-container\">"
 
         week_count = 1
@@ -127,7 +129,7 @@ async def get_user(
 
             for day in week:
                 number_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
-                char_day = f"{month_names[month_count][:3]} {day}, {year}"
+                char_day = f"{month_names[str(month_count)][:3]} {day}, {year}"
 
                 day_transparency = "no-transparent"
                 edit_level = "day-level-0"
@@ -169,45 +171,6 @@ async def get_user(
         edit_data += "</div>"
         edit_data += "</div>"
         month_count += 1
-
-    # Taken from https://gist.github.com/jrnk/8eb57b065ea0b098d571?permalink_comment_id=4302928#gistcomment-4302928
-    language_codes = {
-        "ab": "Abkhazian", "af": "Afrikaans", "ak": "Akan", "am": "Amharic", "an": "Aragonese",
-        "ar": "Arabic", "as": "Assamese", "av": "Avaric", "ay": "Aymara", "az": "Azerbaijani",
-        "ba": "Bashkir", "be": "Belarusian", "bg": "Bulgarian", "bh": "Bihari languages", "bi": "Bislama",
-        "bm": "Bambara", "bn": "Bengali", "bo": "Tibetan", "br": "Breton", "bs": "Bosnian",
-        "ca": "Catalan", "ce": "Chechen", "ch": "Chamorro", "co": "Corsican", "cr": "Cree",
-        "cs": "Czech", "cu": "Church Slavic", "cv": "Chuvash", "cy": "Welsh", "da": "Danish",
-        "de": "German", "dv": "Maldivian", "dz": "Dzongkha", "ee": "Ewe", "el": "Greek",
-        "en": "English", "eo": "Esperanto", "es": "Spanish", "et": "Estonian", "eu": "Basque",
-        "fa": "Persian", "ff": "Fulah", "fi": "Finnish", "fj": "Fijian", "fo": "Faroese",
-        "fr": "French", "fy": "Western Frisian", "ga": "Irish", "gd": "Gaelic", "gl": "Galician",
-        "gn": "Guarani", "gu": "Gujarati", "gv": "Manx", "ha": "Hausa", "he": "Hebrew",
-        "hi": "Hindi", "hr": "Croatian", "ht": "Haitian", "hu": "Hungarian", "hy": "Armenian",
-        "ia": "Interlingua", "id": "Indonesian", "ie": "Interlingue", "ig": "Igbo", "ik": "Inupiaq",
-        "io": "Ido", "is": "Icelandic", "it": "Italian", "iu": "Inuktitut", "ja": "Japanese",
-        "jv": "Javanese", "ka": "Georgian", "kg": "Kongo", "ki": "Kikuyu", "kk": "Kazakh",
-        "kl": "Kalaallisut", "km": "Central Khmer", "kn": "Kannada", "ko": "Korean", "ks": "Kashmiri",
-        "ku": "Kurdish", "kv": "Komi", "kw": "Cornish", "ky": "Kirghiz", "la": "Latin",
-        "lb": "Luxembourgish", "lg": "Ganda", "li": "Limburgan", "ln": "Lingala", "lo": "Lao",
-        "lt": "Lithuanian", "lv": "Latvian", "mg": "Malagasy", "mi": "Maori", "mk": "Macedonian",
-        "ml": "Malayalam", "mn": "Mongolian", "mr": "Marathi", "ms": "Malay", "mt": "Maltese",
-        "my": "Burmese", "na": "Nauru", "nb": "Norwegian", "ne": "Nepali", "ng": "Ndonga",
-        "nl": "Dutch", "nn": "Norwegian", "no": "Norwegian", "nv": "Navajo", "ny": "Chichewa",
-        "oc": "Occitan", "om": "Oromo", "or": "Oriya", "os": "Ossetic", "pa": "Panjabi",
-        "pi": "Pali", "pl": "Polish", "ps": "Pushto", "pt": "Portuguese", "qu": "Quechua",
-        "rm": "Romansh", "rn": "Rundi", "ro": "Romanian", "ru": "Russian", "rw": "Kinyarwanda",
-        "sa": "Sanskrit", "sc": "Sardinian", "sd": "Sindhi", "se": "Northern Sami", "sg": "Sango",
-        "si": "Sinhala", "sk": "Slovak", "sl": "Slovenian", "sm": "Samoan", "sn": "Shona",
-        "so": "Somali", "sq": "Albanian", "sr": "Serbian", "ss": "Swati", "st": "Sotho, Southern",
-        "su": "Sundanese", "sv": "Swedish", "sw": "Swahili", "ta": "Tamil", "te": "Telugu",
-        "tg": "Tajik", "th": "Thai", "ti": "Tigrinya", "tk": "Turkmen", "tl": "Tagalog",
-        "tn": "Tswana", "to": "Tonga", "tr": "Turkish", "ts": "Tsonga", "tt": "Tatar",
-        "tw": "Twi", "ty": "Tahitian", "ug": "Uighur", "uk": "Ukrainian", "ur": "Urdu",
-        "uz": "Uzbek", "ve": "Venda", "vi": "Vietnamese", "vo": "Volapük", "wa": "Walloon",
-        "wo": "Wolof", "xh": "Xhosa", "yi": "Yiddish", "yo": "Yoruba", "za": "Zhuang",
-        "zh": "Chinese", "zu": "Zulu"
-    }
 
     full_lang = language
     if language in language_codes:
