@@ -79,6 +79,10 @@ request, and, because the program loops one by one through all of the edits
 it may take some seconds for users that have made many edits. Based on some
 requests I made, it takes roughly 500ms per 1000 edits. **Please, don't overwhelm
 the API**.
+- The timezone used by the program is UTC. This is because it's faster this way
+for the user to get the chart (as he would need to also type in the timezone they
+want). However, I may introduce the feature to select a specific timezone in the
+future.
 
 [^1]: The shape of the months are different from one another because, instead of
 printing the days as GitHub does, it prints them like a normal calendar. You can
