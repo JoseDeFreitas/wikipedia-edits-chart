@@ -22,22 +22,12 @@ async def get_user(
         "action": "query",
         "format": "json",
         "list": "usercontribs",
-        "uclimit": 500,  # maximum allowed to request
+        "uclimit": 500,
         "ucuser": username,
         "ucstart": f"{year}-12-31T00:00:00Z",
         "ucend": f"{year}-01-01T00:00:00Z"
     }
 
-    with open("external.json", "r") as json_read:
-        json_data = json.load(json_read)
-
-    month_names = json_data["month-names"]
-    # Taken from https://gist.github.com/jrnk/8eb57b065ea0b098d571?permalink_comment_id=4302928#gistcomment-4302928
-    language_codes = json_data["language-codes"]
-
-    colour_mode = f"/{appearance}.css"
-
-    # Request and save the data
     response = None
     try:
         response = requests.get(url=r_url, params=r_params).json()
@@ -54,7 +44,44 @@ async def get_user(
             }
         )
 
+    month_names, language_codes = get_external_data()
+    edit_days, edit_count = get_edit_days(response, r_url, r_params)
+    streak_edits = calculate_streak(year, edit_days)
+    day_levels = get_day_levels(edit_days)
+
+    full_lang = language
+    if language in language_codes:
+        full_lang = language_codes[language]
+
+    colour_mode = f"/{appearance}.css"
+
+    edit_data = format_data_html(year, month_names, edit_days, day_levels)
+
+    return templates.TemplateResponse(
+        "userchart.html",
+        {
+            "request": request,
+            "username": username,
+            "year": year,
+            "total": edit_count,
+            "streak": streak_edits,
+            "language": full_lang,
+            "appearance": colour_mode,
+            "data": edit_data
+        }
+    )
+
+
+def get_external_data() -> tuple[dict, dict]:
+    with open("external.json", "r") as json_read:
+        json_data = json.load(json_read)
+
+    return json_data["month-names"], json_data["language-codes"]
+
+
+def get_edit_days(response, r_url: str, r_params: str) -> tuple[dict, int]:
     edit_days = {}
+
     while True:
         for contribution in response["query"]["usercontribs"]:
             date = contribution["timestamp"][:10]
@@ -70,10 +97,12 @@ async def get_user(
         r_params["uccontinue"] = response["continue"]["uccontinue"]
         response = requests.get(url=r_url, params=r_params).json()
 
-    # Calculate total number of edits in the year
     edit_count = sum(edit_days.values())
 
-    # Calculate longest and current streak
+    return edit_days, edit_count
+
+
+def calculate_streak(year: str, edit_days: dict) -> str:
     streak_number = 0
     streak_edits = ""
 
@@ -103,15 +132,22 @@ async def get_user(
 
         streak_edits = f"Longest streak: {streak_number}"
 
-    # Create list with breakpoints for the colours of the squares
-    max_edit = max(edit_days.values())
+    return streak_edits
+
+
+def get_day_levels(edit_days: dict) -> list:
     day_levels = []
+    max_edit = max(edit_days.values())
     last_number = max_edit
+
     for _ in range(5):
         last_number = last_number - (max_edit / 6)
         day_levels.append(int(last_number))
 
-    # Format the data using HTML
+    return day_levels
+
+
+def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: list) -> str:
     edit_data = ""
     year_days = calendar.Calendar().yeardayscalendar(int(year), width=12)
 
@@ -172,20 +208,4 @@ async def get_user(
         edit_data += "</div>"
         month_count += 1
 
-    full_lang = language
-    if language in language_codes:
-        full_lang = language_codes[language]
-
-    return templates.TemplateResponse(
-        "userchart.html",
-        {
-            "request": request,
-            "username": username,
-            "language": full_lang,
-            "year": year,
-            "data": edit_data,
-            "appearance": colour_mode,
-            "total": edit_count,
-            "streak": streak_edits
-        }
-    )
+    return edit_data
