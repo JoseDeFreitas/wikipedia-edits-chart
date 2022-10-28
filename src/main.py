@@ -96,7 +96,7 @@ def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple[dict, int]
     Parameters
     ----------
     response : dict
-        The first response taken from the Wikimedia Action API
+        The first response taken from the Mediawiki Action API
     r_url : str
         The URL of the response
     r_params : str
