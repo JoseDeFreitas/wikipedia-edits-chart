@@ -1,4 +1,3 @@
-from msilib import type_valid
 import requests
 import calendar
 from datetime import datetime, timedelta
