@@ -72,7 +72,7 @@ async def get_user(
     )
 
 
-def get_external_data() -> tuple[dict, dict]:
+def get_external_data() -> tuple:
     """Reads the "external.json" file and retrieves their objects
 
     Returns
@@ -89,7 +89,7 @@ def get_external_data() -> tuple[dict, dict]:
     return json_data["month-names"], json_data["language-codes"]
 
 
-def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple[dict, int]:
+def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple:
     """Retrieves the days of edits and the number of edits
 
     Parameters
