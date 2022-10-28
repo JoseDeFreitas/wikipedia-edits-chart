@@ -1,3 +1,4 @@
+from msilib import type_valid
 import requests
 import calendar
 from datetime import datetime, timedelta
@@ -73,13 +74,42 @@ async def get_user(
 
 
 def get_external_data() -> tuple[dict, dict]:
+    """Reads the "external.json" file and retrieves their objects
+
+    Returns
+    -------
+    tuple[dict, dict]
+        two dicts, one with the map between numbers and month names
+        and other with the map between language codes and full language
+        names
+    """
+
     with open("external.json", "r") as json_read:
         json_data = json.load(json_read)
 
     return json_data["month-names"], json_data["language-codes"]
 
 
-def get_edit_days(response, r_url: str, r_params: str) -> tuple[dict, int]:
+def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple[dict, int]:
+    """Retrieves the days of edits and the number of edits
+
+    Parameters
+    ----------
+    response : dict
+        The first response taken from the Wikimedia Action API
+    r_url : str
+        The URL of the response
+    r_params : str
+        The parameters to attach to the response
+
+    Returns
+    -------
+    tuple[dict, int]
+        a dict with the dates the user made at least one edit and the
+        quantity of the edits and a number with the total count of
+        edits made
+    """
+
     edit_days = {}
 
     while True:
@@ -103,6 +133,23 @@ def get_edit_days(response, r_url: str, r_params: str) -> tuple[dict, int]:
 
 
 def calculate_streak(year: str, edit_days: dict) -> str:
+    """Calculates de current or the longest streak made
+
+    Parameters
+    ----------
+    year : str
+        The year the user chose
+    edit_days : dict
+        The dict with the days and count of edits the user made
+        for each of them
+
+    Returns
+    -------
+    str
+        the text with the number of the current or the longest
+        streak
+    """
+
     streak_number = 0
     streak_edits = ""
 
@@ -136,6 +183,21 @@ def calculate_streak(year: str, edit_days: dict) -> str:
 
 
 def get_day_levels(edit_days: dict) -> list:
+    """Calculates the numbers to use as breakpoints for the colours
+
+    Parameters
+    ----------
+    edit_days : dict
+        The dict with the days and count of edits the user made
+        for each of them
+
+    Returns
+    -------
+    list
+        the numbers that the HTML classes should use to decide
+        which tone of colour to apply to the square
+    """
+
     day_levels = []
     max_edit = max(edit_days.values())
     last_number = max_edit
@@ -148,6 +210,27 @@ def get_day_levels(edit_days: dict) -> list:
 
 
 def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: list) -> str:
+    """Formats the data using HTML tags and attributes
+
+    Parameters
+    ----------
+    year : str
+        The year the user chose
+    month_names : dict
+        A dict with the map between numbers and month names
+    edit_days : dict
+        The dict with the days and count of edits the user made
+        for each of them
+    day_levels : list
+        List of numbers to serve as breakpoints for the colours
+        of the squares
+
+    Returns
+    -------
+    str
+        the HTML string with all the information
+    """
+
     edit_data = ""
     year_days = calendar.Calendar().yeardayscalendar(int(year), width=12)
 
