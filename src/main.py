@@ -112,7 +112,7 @@ def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple[dict, int]
 
     edit_days = {}
 
-    while True:
+    while 1:
         for contribution in response["query"]["usercontribs"]:
             date = contribution["timestamp"][:10]
 
@@ -155,7 +155,7 @@ def calculate_streak(year: str, edit_days: dict) -> str:
 
     if year == str(datetime.now().year):
         last = datetime.now()
-        while True:
+        while 1:
             if str(last)[:10] in edit_days:
                 streak_number += 1
                 last = last - timedelta(days=1)
