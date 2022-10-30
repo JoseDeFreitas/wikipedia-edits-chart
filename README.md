@@ -40,12 +40,12 @@ message.
 
 ### Parameters
 
-| Parameter      | Type            | Example                                                               | Required |
-| ----------     | --------------- | --------------------------------------------------------------------- | -------- |
-| username       | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
-| language[^4]   | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
-| year           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
-| appearance[^5] | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
+| Parameter          | Type            | Example                                                               | Required |
+| ------------------ | --------------- | --------------------------------------------------------------------- | -------- |
+| username           | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
+| language[^4]       | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
+| year[^5]           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
+| appearance[^6]     | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
 
 ### Examples
 
@@ -98,5 +98,8 @@ for the free plan (which is the one I'm using).
 [^4]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
 Wikimedia uses a combination of standards to define the language codes. Here is a
 [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
-[^5]: The default value is "light". You can specify it explicitly or leave it. If
+[^5]: You can set the value of "year" to be "current", which will choose the current
+year of the Earth. This is useful if you want to have the chart permanently in
+any site without needing to change the year value every year.
+[^6]: The default value is "light". You can specify it explicitly or leave it. If
 you want the dark mode, you need to specify it explicitly.
