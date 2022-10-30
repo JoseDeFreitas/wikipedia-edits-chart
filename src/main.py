@@ -17,6 +17,10 @@ async def get_user(
     request: Request, username: str, language: str,
     year: str, appearance: str = "light"
     ):
+    
+    if year == "current":
+        year = str(datetime.now().year)
+
     r_url = f"https://{language}.wikipedia.org/w/api.php"
     r_params = {
         "action": "query",
