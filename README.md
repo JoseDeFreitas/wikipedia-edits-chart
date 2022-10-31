@@ -99,7 +99,7 @@ for the free plan (which is the one I'm using).
 Wikimedia uses a combination of standards to define the language codes. Here is a
 [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
 [^5]: You can set the value of "year" to be "current", which will choose the current
-year of the Earth. This is useful if you want to have the chart permanently in
-any site without needing to change the year value every year.
+year. This is useful if you want to have the chart permanently in any site without the
+necessity of changing the value every year.
 [^6]: The default value is "light". You can specify it explicitly or leave it. If
 you want the dark mode, you need to specify it explicitly.
