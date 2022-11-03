@@ -5,11 +5,9 @@ import json
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/{username}", response_class=HTMLResponse)
@@ -40,13 +38,7 @@ async def get_user(
         return
 
     if len(response["query"]["usercontribs"]) == 0:
-        return templates.TemplateResponse(
-            "nodata.html",
-            {
-                "request": request,
-                "data": "<p id=\"not-found\">No data was found for this user for this period of time.</p>",
-            }
-        )
+        return "No data was found for this user for this period of time."
 
     month_names, language_codes = get_external_data()
     edit_days, edit_count = get_edit_days(response, r_url, r_params)
