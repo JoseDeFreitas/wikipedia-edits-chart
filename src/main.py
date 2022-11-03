@@ -3,7 +3,6 @@ import calendar
 from datetime import datetime, timedelta
 import json
 from fastapi import FastAPI, Response
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
