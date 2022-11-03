@@ -233,8 +233,8 @@ def format_data_html(
         <link rel=\"stylesheet\" href=\"static/global.css\" type=\"text/css\" />
         <rect x=\"0.5\" y=\"0.5\" rx=\"6\" width=\"626\" height=\"99%\" stroke=\"#b3b3b3\" stroke-width=\"2\" fill-opacity=\"0\"></rect>
         <rect x=\"5\" y=\"5\" rx=\"4\" width=\"617.2\" height=\"97%\" stroke=\"#ededed\" stroke-width=\"6\" fill-opacity=\"0\"></rect>
-        <g id=\"user-and-year\">
-            <text>Edits from {username} in {year}</text>
+        <g id=\"user-and-year\" transform=\"translate(313, 12)\">
+            <text font-size=\"20\">Edits from {username} in {year}</text>
         </g>
         <g id=\"year-container\">
     """

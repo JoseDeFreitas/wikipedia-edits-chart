@@ -2,7 +2,6 @@
 
 body {
     font-family: Verdana, sans-serif;
-    margin: 0;
 }
 
 /* Unique */
@@ -42,10 +41,6 @@ body {
 }
 
 /* Structured */
-
-#contributions-chart {
-    border-radius: 6px;
-}
 
 #user-and-year {
     font-size: 20px;
