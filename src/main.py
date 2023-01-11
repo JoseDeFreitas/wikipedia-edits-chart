@@ -44,7 +44,7 @@ async def get_user(
             "nodata.html",
             {
                 "request": request,
-                "data": "<p id=\"not-found\">No data was found for this user for this period of time.</p>",
+                "data": "<p id=\"not-found\">No data was found for this user and/or for this period of time.</p>",
             }
         )
 
