@@ -1,7 +1,5 @@
 # Wikipedia Edits Chart
 
-**In the near future, it will return a SVG image rather than a HTML page.**
-
 This is a little program that prints a chart, in the form of a calendar (based
 on the year you choose),[^1] that shows the days a specified user contributed to a
 specific Wikipedia project (that is, a specific Wikipedia language) and the
@@ -83,6 +81,9 @@ the API**.
 for the user to get the chart (as he would need to also type in the timezone they
 want). However, I may introduce the feature to select a specific timezone in the
 future.
+- You **have to** embed it in another page for it to show. I tried generating the
+image directly in PNG or SVG (without the use of any third-party library), but it was
+too messy.
 
 [^1]: The shape of the months are different from one another because, instead of
 printing the days as GitHub does, it prints them like a normal calendar. You can
