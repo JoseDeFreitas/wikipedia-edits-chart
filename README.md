@@ -23,7 +23,7 @@ good to provide.
 ## Screenshots
 
 <a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021"><img alt="WikipediaEditsChart example in light mode" src="https://user-images.githubusercontent.com/37962411/198012135-e72aa9fd-1035-44b7-bf74-3298720bf26f.png" title="In light mode" height="404"/></a>
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&appearance=dark"><img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/198012209-8b561a39-2841-4aad-a57a-61f42e23c13d.png" title="In dark mode" height="393"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&aspect=dark"><img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/198012209-8b561a39-2841-4aad-a57a-61f42e23c13d.png" title="In dark mode" height="393"/></a>
 
 *You can hover over each day to see the amount of edits in that day*.
 
@@ -42,14 +42,14 @@ message.
 | username           | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
 | language[^4]       | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
 | year[^5]           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
-| appearance[^6]     | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?appearance=dark | no       |
+| aspect[^6]     | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark | no       |
 
 ### Examples
 
 - See the edits from Jimbo Wales in the English Wikipedia in 2020:
     - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2020
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
-    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&appearance=dark
+    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&aspect=dark
 
 ### Embedding
 

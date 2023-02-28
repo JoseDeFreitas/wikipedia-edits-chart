@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/{username}", response_class=HTMLResponse)
 async def get_user(
     request: Request, username: str, language: str,
-    year: str, appearance: str = "light"
+    year: str, aspect: str = "light"
     ):
     
     if year == "current":
@@ -57,7 +57,7 @@ async def get_user(
     if language in language_codes:
         full_lang = language_codes[language]
 
-    colour_mode = f"/{appearance}.css"
+    colour_mode = f"/{aspect}.css"
 
     edit_data = format_data_html(year, month_names, edit_days, day_levels)
 
@@ -70,7 +70,7 @@ async def get_user(
             "total": edit_count,
             "streak": streak_edits,
             "language": full_lang,
-            "appearance": colour_mode,
+            "aspect": colour_mode,
             "data": edit_data
         }
     )
