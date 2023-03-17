@@ -30,19 +30,19 @@ good to provide.
 ## Usage
 
 To get the chart, simply go to **https://wikipedia-edits-chart.glitch.me** and
-add the required parameters.[^3] Below you can find the list of the available path
+add the required parameters. Below you can find the list of the available path
 and query parameters, as well as some examples. If the user couldn't be found or
 there is no edits for the choosen year, the API will let you know with a red
 message.
 
 ### Parameters
 
-| Parameter          | Type            | Example                                                               | Required |
-| ------------------ | --------------- | --------------------------------------------------------------------- | -------- |
-| username           | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
-| language[^4]       | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
-| year[^5]           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | no       |
-| aspect[^6]         | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark     | no       |
+| Parameter          | Required | Default value    | Example                                                               |
+| ------------------ | -------- | ---------------- | --------------------------------------------------------------------- |
+| username           | yes      | *None*           | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 |
+| language[^3]       | yes      | *None*           | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     |
+| year               | no       | The current year | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       |
+| aspect             | no       | light            | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark     |
 
 ### Examples
 
@@ -76,6 +76,10 @@ request, and, because the program loops one by one through all of the edits
 it may take some seconds for users that have made many edits. Based on some
 requests I made, it takes roughly 500ms per 1000 edits. **Please, don't overwhelm
 the API**.
+- When no one has made a request to the website in 5 minutes, Glitch (the host
+I'm using) turns off the website. In this case, you'll need to wait some seconds for
+the chart to appear. There is also a [limited amount of hours per month](https://help.glitch.com/kb/article/17-technical-restrictions/)
+for the free plan (which is the one I'm using).
 - The timezone used by the program is **UTC**. This is because it's faster this way
 for the user to get the chart (as he would need to also type in the timezone they
 want). However, I may introduce the feature to select a specific timezone in the
@@ -91,15 +95,6 @@ finishes at Sunday.
 [^2]: If you choose the current year, it will print the current streak. If you
 choose any other year that has already passed, it will print the longest streak
 made.
-[^3]: When no one has made a request to the website in 5 minutes, Glitch (the host
-I'm using) turns off the website. In this case, you'll need to wait some seconds for
-the chart to appear. There is also a [limited amount of hours per month](https://help.glitch.com/kb/article/17-technical-restrictions/)
-for the free plan (which is the one I'm using).
-[^4]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
+[^3]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
 Wikimedia uses a combination of standards to define the language codes. Here is a
 [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
-[^5]: You can set the value of "year" to be "current", which will choose the current
-year. This is useful if you want to have the chart permanently in any site without the
-necessity of changing the value every year.
-[^6]: The default value is "light". You can specify it explicitly or leave it. If
-you want the dark mode, you need to specify it explicitly.
