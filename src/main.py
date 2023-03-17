@@ -15,11 +15,8 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/{username}", response_class=HTMLResponse)
 async def get_user(
     request: Request, username: str, language: str,
-    year: str, aspect: str = "light"
+    year: str = str(datetime.now().year), aspect: str = "light"
     ):
-    
-    if year == "current":
-        year = str(datetime.now().year)
 
     r_url = f"https://{language}.wikipedia.org/w/api.php"
     r_params = {
