@@ -41,7 +41,7 @@ message.
 | ------------------ | -------- | ---------------- | --------------------------------------------------------------------- |
 | username           | yes      | *None*           | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 |
 | language[^3]       | yes      | *None*           | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     |
-| year               | no       | The current year | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       |
+| year               | no       | Current year | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       |
 | aspect             | no       | light            | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark     |
 
 ### Examples
