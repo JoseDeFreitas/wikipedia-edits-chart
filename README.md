@@ -41,8 +41,8 @@ message.
 | ------------------ | --------------- | --------------------------------------------------------------------- | -------- |
 | username           | path parameter  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 | yes      |
 | language[^4]       | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     | yes      |
-| year[^5]           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | yes      |
-| aspect[^6]     | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark | no       |
+| year[^5]           | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       | no       |
+| aspect[^6]         | query parameter | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark     | no       |
 
 ### Examples
 
