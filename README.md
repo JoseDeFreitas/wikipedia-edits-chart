@@ -39,9 +39,9 @@ message.
 
 | Parameter          | Required | Default value    | Example                                                               |
 | ------------------ | -------- | ---------------- | --------------------------------------------------------------------- |
-| username           | yes      | *None*           | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 |
-| language[^3]       | yes      | *None*           | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     |
-| year               | no       | Current year | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       |
+| username           | yes      |                  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 |
+| language[^3]       | yes      |                  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     |
+| year               | no       | Current year     | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       |
 | aspect             | no       | light            | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark     |
 
 ### Examples
