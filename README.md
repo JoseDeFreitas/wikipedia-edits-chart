@@ -22,8 +22,8 @@ good to provide.
 
 ## Screenshots
 
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021"><img alt="WikipediaEditsChart example in light mode" src="https://user-images.githubusercontent.com/37962411/198012135-e72aa9fd-1035-44b7-bf74-3298720bf26f.png" title="In light mode" height="404"/></a>
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&aspect=dark"><img alt="WikipediaEditsChart example in dark mode" src="https://user-images.githubusercontent.com/37962411/198012209-8b561a39-2841-4aad-a57a-61f42e23c13d.png" title="In dark mode" height="393"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021"><img alt="Wikipedia Edits Chart example in light mode" src="https://user-images.githubusercontent.com/37962411/198012135-e72aa9fd-1035-44b7-bf74-3298720bf26f.png" title="In light mode" height="404"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&aspect=dark"><img alt="Wikipedia Edits Chart example in dark mode" src="https://user-images.githubusercontent.com/37962411/198012209-8b561a39-2841-4aad-a57a-61f42e23c13d.png" title="In dark mode" height="393"/></a>
 
 ## Usage
 
