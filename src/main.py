@@ -12,7 +12,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
-@app.get("/{username}", response_class=HTMLResponse)
+@app.get("/{username}/{language}", response_class=HTMLResponse)
 async def get_user(
     request: Request, username: str, language: str,
     year: str = str(datetime.now().year), aspect: str = "light"

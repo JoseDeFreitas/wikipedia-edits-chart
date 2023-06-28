@@ -22,8 +22,8 @@ good to provide.
 
 ## Screenshots
 
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2021"><img alt="Wikipedia Edits Chart example in light mode" src="https://user-images.githubusercontent.com/37962411/198012135-e72aa9fd-1035-44b7-bf74-3298720bf26f.png" title="In light mode" height="404"/></a>
-<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&aspect=dark"><img alt="Wikipedia Edits Chart example in dark mode" src="https://user-images.githubusercontent.com/37962411/198012209-8b561a39-2841-4aad-a57a-61f42e23c13d.png" title="In dark mode" height="393"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales/en?year=2021"><img alt="Wikipedia Edits Chart example in light mode" src="https://user-images.githubusercontent.com/37962411/198012135-e72aa9fd-1035-44b7-bf74-3298720bf26f.png" title="In light mode" height="404"/></a>
+<a href="https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales/en?year=2022&aspect=dark"><img alt="Wikipedia Edits Chart example in dark mode" src="https://user-images.githubusercontent.com/37962411/198012209-8b561a39-2841-4aad-a57a-61f42e23c13d.png" title="In dark mode" height="393"/></a>
 
 ## Usage
 
@@ -37,19 +37,19 @@ To see the amount of katas completed in a day, you must hover over that day.
 
 ### Parameters
 
-| Parameter          | Required | Default value    | Example                                                               |
-| ------------------ | -------- | ---------------- | --------------------------------------------------------------------- |
-| username           | yes      |                  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales                 |
-| language[^3]       | yes      |                  | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en     |
-| year               | no       | Current year     | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?year=2022       |
-| aspect             | no       | light            | https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?aspect=dark     |
+| Parameter          | Required | Default value    |
+| ------------------ | -------- | ---------------- |
+| username           | yes      |                  |
+| language[^3]       | yes      |                  |
+| year               | no       | Current year     |
+| aspect             | no       | light            |
 
 ### Examples
 
 - See the edits from Jimbo Wales in the English Wikipedia in 2020:
-    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2020
+    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales/en?year=2020
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
-    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales?language=en&year=2022&aspect=dark
+    - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales/en?year=2022&aspect=dark
 
 ### Embedding
 
