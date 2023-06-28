@@ -26,6 +26,10 @@ body {
     color: #ffffff;
 }
 
+.day:hover {
+    box-shadow: 0px 0px 0px 1px rgba(25, 25, 25, 1) inset;
+}
+
 #additional-info {
     background-color: #ebebeb;
 }
