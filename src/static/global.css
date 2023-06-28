@@ -43,6 +43,14 @@ body {
 
 /* Structured */
 
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #contributions-chart {
     border-radius: 6px;
     display: grid;
