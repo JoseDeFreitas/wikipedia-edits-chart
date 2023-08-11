@@ -6,6 +6,15 @@ body {
     background-color: #2e2e2e;
 }
 
+#header-container {
+    background-color: #2e2e2e;
+    border-bottom: 2px solid #666666;
+}
+
+#title {
+    color: #ffffff;
+}
+
 #contributions-chart {
     background-color: #191919;
     border: 2px solid #666666;

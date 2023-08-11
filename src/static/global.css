@@ -43,9 +43,36 @@ body {
 
 /* Structured */
 
+#header-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+
+#header-inner {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 2em;
+}
+
+#title {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#header-container a {
+    color: #2626ff;
+    text-decoration: none;
+}
+
+#header-container a:hover {
+    text-decoration: underline;
+}
+
+
 #container {
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
