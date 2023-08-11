@@ -51,19 +51,6 @@ To see the amount of katas completed in a day, you must hover over that day.
 - See the edits from Jimbo Wales in the English Wikipedia in 2022 in dark mode:
     - https://wikipedia-edits-chart.glitch.me/Jimbo%20Wales/en?year=2022&theme=dark
 
-### Embedding
-
-You can embed the chart in your website (or any website that allows for embedding
-other websites) using the [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
-tag from HTML:
-
-```html
-<iframe src="CHART_URL" width="625" height="421"></iframe>
-```
-
-625 of width and 421 of height looks good enough to show only the chart, but you
-can tweak these values as you want.
-
 ## Remarks
 
 - The limit of edits to retrieve is 500 per request, as stated in the
