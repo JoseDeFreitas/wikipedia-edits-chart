@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/{username}/{language}", response_class=HTMLResponse)
 async def get_user(
     request: Request, username: str, language: str,
-    year: str = str(datetime.now().year), aspect: str = "light"
+    year: str = str(datetime.now().year), theme: str = "light"
     ):
 
     r_url = f"https://{language}.wikipedia.org/w/api.php"
@@ -54,7 +54,7 @@ async def get_user(
     if language in language_codes:
         full_lang = language_codes[language]
 
-    colour_mode = f"/{aspect}.css"
+    colour_mode = f"/{theme}.css"
 
     edit_data = format_data_html(year, month_names, edit_days, day_levels)
 
@@ -67,7 +67,7 @@ async def get_user(
             "total": edit_count,
             "streak": streak_edits,
             "language": full_lang,
-            "aspect": colour_mode,
+            "theme": colour_mode,
             "data": edit_data
         }
     )
