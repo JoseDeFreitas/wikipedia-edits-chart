@@ -1,9 +1,9 @@
 # Wikipedia Edits Chart
 
-This is a little program that prints a chart, in the form of a calendar (based
-on the year you choose),[^1] that shows the days a specified user contributed to a
-specific Wikipedia project (that is, a specific Wikipedia language) and the
-quantity of the edits they made in that day. The API also counts the total
+This is a small program that prints a chart, in the form of a calendar (based
+on the year you choose),[^1] that shows the days a specified user contributed to
+a specific Wikipedia project (that is, a specific Wikipedia language) and the
+amount of edits they made in that day. The program also counts the total
 amount of edits made in the year and the streak of edits.[^2] Head to the
 [Screenshots](#screenshots) section to see how it looks. **The contribution
 chart from GitHub was my inspiration.**
@@ -13,10 +13,8 @@ they provide anything useful, and, in some cases, I believe they're noxious as
 force you to keep contributing (even if you don't want to) or preserve a streak
 that is, pretty much, useless. This may not seem like an issue, but I do believe
 it's wrong to make a change (in any website) just to keep the chart "pretty".
-It's not that of a big deal as it's up to you not to pay attention to the chart
-and stop doing useless changes, but it's still an incentive to do so.
 
-I didn't code this API for people to make it part of their contribution schedule
+I didn't code this program for people to make it part of their contribution schedule
 to Wikipedia, where what people should do is contribute when they have something
 good to provide.
 
@@ -30,7 +28,7 @@ good to provide.
 To get the chart, simply go to **https://wikipedia-edits-chart.glitch.me** and
 add the required parameters. Below you can find the list of the available path
 and query parameters, as well as some examples. If the user couldn't be found or
-there is no edits for the choosen year, the API will let you know with a red
+there are no edits for the choosen year, the website will let you know with a red
 message.
 
 To see the amount of katas completed in a day, you must hover over that day.
@@ -62,7 +60,7 @@ request, and, because the program loops one by one through all of the edits
 (as [Wikimedia asks you to not make the requests in parallel](https://www.mediawiki.org/wiki/API:Etiquette)),
 it may take some seconds for users that have made many edits. Based on some
 requests I made, it takes roughly 500ms per 1000 edits. **Please, don't overwhelm
-the API**.
+the website**.
 - When no one has made a request to the website in 5 minutes, Glitch (the host
 I'm using) turns off the website. In this case, you'll need to wait some seconds for
 the chart to appear. There is also a [limited amount of hours per month](https://help.glitch.com/kb/article/17-technical-restrictions/)
@@ -71,9 +69,6 @@ for the free plan (which is the one I'm using).
 for the user to get the chart (as he would need to also type in the timezone they
 want). However, I may introduce the feature to select a specific timezone in the
 future.
-- You **have to** embed it in another page for it to show. I tried generating the
-image directly in PNG or SVG (without the use of any third-party library), but it was
-too messy.
 
 [^1]: The shape of the months are different from one another because, instead of
 printing the days as GitHub does, it prints them like a normal calendar. You can
