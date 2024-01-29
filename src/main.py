@@ -15,7 +15,8 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/{username}/{language}", response_class=HTMLResponse)
 async def get_user(
     request: Request, username: str, language: str,
-    year: str = str(datetime.now().year), theme: str = "light"
+    year: str = str(datetime.now().year), theme: str = "light",
+    translated: bool = False
     ):
 
     r_url = f"https://{language}.wikipedia.org/w/api.php"
@@ -45,18 +46,25 @@ async def get_user(
             }
         )
 
-    month_names, language_codes = get_external_data()
+    languages = get_external_data()
+    month_names = languages["en"]["month-names"]
     edit_days, edit_count = get_edit_days(response, r_url, r_params)
-    streak_edits = calculate_streak(year, edit_days)
+    streak_edits, streak_type = calculate_streak(year, edit_days)
     day_levels = get_day_levels(edit_days)
-
-    full_lang = language
-    if language in language_codes:
-        full_lang = language_codes[language]
 
     colour_mode = f"/{theme}.css"
 
-    edit_data = format_data_html(year, month_names, edit_days, day_levels)
+    if not translated:
+        translation = languages["en"]
+    else:
+        translation = languages[language]
+
+    if streak_type == "current":
+        streak_info = [translation["text4"][0], streak_edits]
+    else:
+        streak_info = [translation["text4"][1], streak_edits]
+
+    edit_data = format_data_html(year, month_names, edit_days, day_levels, translation)
 
     return templates.TemplateResponse(
         "userchart.html",
@@ -65,29 +73,28 @@ async def get_user(
             "username": username,
             "year": year,
             "total": edit_count,
-            "streak": streak_edits,
-            "language": full_lang,
+            "streak": streak_info,
+            "i18n": translation,
             "theme": colour_mode,
             "data": edit_data
         }
     )
 
 
-def get_external_data() -> tuple:
+def get_external_data() -> dict:
     """Reads the "external.json" file and retrieves their objects
 
     Returns
     -------
-    tuple[dict, dict]
-        two dicts, one with the map between numbers and month names
-        and other with the map between language codes and full language
-        names
+    dict
+        a dictionary with all the information for every language
+        (the names of the months and the translated strings)
     """
 
     with open("external.json", "r") as json_read:
         json_data = json.load(json_read)
 
-    return json_data["month-names"], json_data["language-codes"]
+    return json_data["languages"]
 
 
 def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple:
@@ -132,7 +139,7 @@ def get_edit_days(response: dict, r_url: str, r_params: str) -> tuple:
     return edit_days, edit_count
 
 
-def calculate_streak(year: str, edit_days: dict) -> str:
+def calculate_streak(year: str, edit_days: dict) -> tuple:
     """Calculates de current or the longest streak made
 
     Parameters
@@ -145,9 +152,9 @@ def calculate_streak(year: str, edit_days: dict) -> str:
 
     Returns
     -------
-    str
-        the text with the number of the current or the longest
-        streak
+    tuple[int, str]
+        the number of the edits and the type of streak
+        (current or longest), depending on the year
     """
 
     streak_number = 0
@@ -162,7 +169,7 @@ def calculate_streak(year: str, edit_days: dict) -> str:
             else:
                 break
 
-        streak_edits = f"Current streak: {streak_number}"
+        streak_edits = streak_number, "current"
     else:
         streak_count = 0
         last = datetime.strptime(list(edit_days.keys())[0], "%Y-%m-%d")
@@ -177,7 +184,7 @@ def calculate_streak(year: str, edit_days: dict) -> str:
                 last = datetime.strptime(list(edit_days.keys())[day], "%Y-%m-%d") - timedelta(days=1)
                 streak_count = 1
 
-        streak_edits = f"Longest streak: {streak_number}"
+        streak_edits = streak_number, "longest"
 
     return streak_edits
 
@@ -209,7 +216,8 @@ def get_day_levels(edit_days: dict) -> list:
     return day_levels
 
 
-def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: list) -> str:
+def format_data_html(year: str, month_names: dict, edit_days: dict,
+                     day_levels: list, translation: list) -> str:
     """Formats the data using HTML tags and attributes
 
     Parameters
@@ -224,6 +232,9 @@ def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: 
     day_levels : list
         List of numbers to serve as breakpoints for the colours
         of the squares
+    translation : list
+        List of strings to use depending on whether the user
+        chose to translate the content or not
 
     Returns
     -------
@@ -239,7 +250,7 @@ def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: 
         lower_month = month_names[str(month_count)].lower()
 
         edit_data += f"<div id=\"{lower_month}\" class=\"month\">"
-        edit_data += f"<h2 class=\"month-title\">{month_names[str(month_count)]}</h2>"
+        edit_data += f"<h2 class=\"month-title\">{translation['month-names'][str(month_count)]}</h2>"
         edit_data += "<div class=\"month-container\">"
 
         week_count = 1
@@ -252,7 +263,7 @@ def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: 
 
                 day_transparency = "no-transparent"
                 edit_level = "day-level-0"
-                tooltip = f"No contributions on {char_day}"
+                tooltip = f"{translation['text5'][0]} {char_day}"
 
                 if day == 0:
                     day_transparency = "yes-transparent"
@@ -260,7 +271,7 @@ def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: 
                     tooltip = ""
 
                 if number_day in edit_days:
-                    tooltip = f"{edit_days[number_day]} contributions on {char_day}"
+                    tooltip = f"{edit_days[number_day]} {translation['text5'][1]} {char_day}"
 
                     if edit_days[number_day] >= day_levels[0]:
                         edit_level = "day-level-6"
@@ -276,7 +287,7 @@ def format_data_html(year: str, month_names: dict, edit_days: dict, day_levels: 
                         edit_level = "day-level-1"
                     elif edit_days[number_day] == 1:
                         edit_level = "day-level-1"
-                        tooltip = f"{edit_days[number_day]} contribution on {char_day}"
+                        tooltip = f"{edit_days[number_day]} {translation['text5'][2]} {char_day}"
 
                 edit_data += f"""
                 <div class=\"day {edit_level} {day_transparency}\">
