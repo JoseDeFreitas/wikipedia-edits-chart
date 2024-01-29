@@ -14,6 +14,7 @@
                 "7": "July", "8": "August", "9": "September",
                 "10": "October", "11": "November", "12": "December"
             },
+            "date-template": "#Month #day, #year",
             "text1": ["Edits by", "in"],
             "text2": "English Wikipedia",
             "text3": "Total edits:",
@@ -28,6 +29,7 @@
                 "7": "Julio", "8": "Agosto", "9": "Septiembre",
                 "10": "Octubre", "11": "Noviembre", "12": "Diciembre"
             },
+            "date-template": "#day de #month de #year",
             "text1": ["Ediciones de", "en"],
             "text2": "Wikipedia en español",
             "text3": "Ediciones totales:",

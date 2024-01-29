@@ -259,7 +259,15 @@ def format_data_html(year: str, month_names: dict, edit_days: dict,
 
             for day in week:
                 number_day = f"{year}-{str(month_count).zfill(2)}-{str(day).zfill(2)}"
-                char_day = f"{month_names[str(month_count)][:3]} {day}, {year}"
+                char_day = translation["date-template"].replace(
+                                "#day", str(day)
+                            ).replace(
+                                "#month", translation["month-names"][str(month_count)].lower()
+                            ).replace(
+                                "#Month", translation["month-names"][str(month_count)]
+                            ).replace(
+                                "#year", str(year)
+                            )
 
                 day_transparency = "no-transparent"
                 edit_level = "day-level-0"
