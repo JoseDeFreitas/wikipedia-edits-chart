@@ -152,11 +152,11 @@ body {
 }
 
 #additional-info {
-    font-size: 16px;
-    margin: 5px 0 0;
+    font-size: 0.9em;
+    margin: 5px 5px 0;
     padding: 8px 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
 }
 
 #additional-info div {
@@ -171,5 +171,4 @@ body {
 
 #additional-info span {
     margin: 5px 0 0 5px;
-    font-size: 16px;
 }
