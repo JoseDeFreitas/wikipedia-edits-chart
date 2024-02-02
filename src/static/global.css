@@ -81,8 +81,8 @@ body {
 #contributions-chart {
     border-radius: 6px;
     display: grid;
-    grid-template-rows: min-content 1fr min-content;
-    width: min-content;
+    grid-template-rows: auto 1fr auto;
+    width: auto;
 }
 
 #user-and-year {
@@ -107,7 +107,7 @@ body {
 
 .month {
     display: grid;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: auto 1fr;
 }
 
 .month .month-title {
