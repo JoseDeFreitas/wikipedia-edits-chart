@@ -169,7 +169,7 @@ def calculate_streak(year: str, edit_days: dict) -> tuple:
             else:
                 break
 
-        if datetime.now() in edit_days:
+        if str(datetime.now())[:10] in edit_days:
             streak_number += 1
 
         streak_edits = streak_number, "current"
