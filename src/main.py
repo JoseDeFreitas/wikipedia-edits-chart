@@ -46,7 +46,7 @@ async def get_user(
             }
         )
 
-    languages = get_external_data()
+    languages = get_translations_data()
     month_names = languages["en"]["month-names"]
     edit_days, edit_count = get_edit_days(response, r_url, r_params)
     streak_edits, streak_type = calculate_streak(year, edit_days)
@@ -81,8 +81,8 @@ async def get_user(
     )
 
 
-def get_external_data() -> dict:
-    """Reads the "external.json" file and retrieves their objects
+def get_translations_data() -> dict:
+    """Reads the "i18n.json" file and retrieves their objects
 
     Returns
     -------
@@ -91,7 +91,7 @@ def get_external_data() -> dict:
         (the names of the months and the translated strings)
     """
 
-    with open("external.json", "r") as json_read:
+    with open("i18n.json", "r") as json_read:
         json_data = json.load(json_read)
 
     return json_data["languages"]
