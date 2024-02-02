@@ -99,6 +99,7 @@ body {
 }
 
 #year-container {
+    justify-self: center;
     display: grid;
     grid-template-columns: repeat(6, max-content);
     padding: 5px 15px;
