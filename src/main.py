@@ -57,7 +57,10 @@ async def get_user(
     if not translated:
         translation = languages["en"]
     else:
-        translation = languages[language]
+        if isinstance(languages[language], str):
+            translation = languages["en"]
+        else:
+            translation = languages[language]
 
     if streak_type == "current":
         streak_info = [translation["text4"][0], streak_edits]
