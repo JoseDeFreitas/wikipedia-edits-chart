@@ -35,12 +35,13 @@ To see the amount of katas completed in a day, you must hover over that day.
 
 ### Parameters
 
-| Parameter          | Required | Default value    |
-| ------------------ | -------- | ---------------- |
-| username           | yes      |                  |
-| language[^3]       | yes      |                  |
-| year               | no       | Current year     |
-| theme              | no       | light            |
+| Parameter          | Required | Default value    | Available values |
+| ------------------ | -------- | ---------------- | ---------------- |
+| username           | yes      |                  |                  |
+| language[^3]       | yes      |                  |                  |
+| year               | no       | Current year     |                  |
+| theme              | no       | light            | light, dark      |
+| translated         | no       | false            | false, true      |
 
 ### Examples
 
@@ -80,3 +81,6 @@ made.
 [^3]: Wikipedia is available in [many languages](https://meta.wikimedia.org/wiki/List_of_Wikipedias).
 Wikimedia uses a combination of standards to define the language codes. Here is a
 [list of language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for you to know.
+If you choose to translate the text, the target language will be the one of the
+Wikipedia project you chose; if, for example, you chose to see your edits in the
+Wikipedia in italian, the text will appear in italian (if the translation exists).
