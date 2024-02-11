@@ -53,7 +53,22 @@
         "mt": "Maltese", "my": "Burmese", "na": "Nauru", "nb": "Norwegian", "ne": "Nepali",
         "ng": "Ndonga", "nl": "Dutch", "nn": "Norwegian", "no": "Norwegian", "nv": "Navajo",
         "ny": "Chichewa", "oc": "Occitan", "om": "Oromo", "or": "Oriya", "os": "Ossetic",
-        "pa": "Panjabi", "pi": "Pali", "pl": "Polish", "ps": "Pushto", "pt": "Portuguese",
+        "pa": "Panjabi", "pi": "Pali", "pl": "Polish", "ps": "Pushto",
+        "pt": {
+            "name": "Portuguese",
+            "month-names": {
+                "1": "Janeiro", "2": "Fevereiro", "3": "Março",
+                "4": "Abril", "5": "Maio", "6": "Junho",
+                "7": "Julho", "8": "Agosto", "9": "Setembro",
+                "10": "Outubro", "11": "Novembro", "12": "Dezembro"
+            },
+            "date-template": "#day de #month de #year",
+            "text1": ["Edições de", "em"],
+            "text2": "Wikipedia em português",
+            "text3": "Edições totais:",
+            "text4": ["Racha atual:", "Racha mais longa:"],
+            "text5": ["Não houve edições no", "edições no", "edição no"] 
+        },
         "qu": "Quechua", "rm": "Romansh", "rn": "Rundi", "ro": "Romanian", "ru": "Russian",
         "rw": "Kinyarwanda", "sa": "Sanskrit", "sc": "Sardinian", "sd": "Sindhi", "se": "Northern Sami",
         "sg": "Sango", "si": "Sinhala", "sk": "Slovak", "sl": "Slovenian", "sm": "Samoan",
