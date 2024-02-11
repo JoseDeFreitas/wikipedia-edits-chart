@@ -56,7 +56,11 @@ async def get_user(
 
     if not translated:
         translation = languages["en"]
-        wiki_language = languages[language] + " Wikipedia"
+
+        if isinstance(languages[language], str):
+            wiki_language = languages[language] + " Wikipedia"
+        else:
+            wiki_language = languages[language]["name"] + " Wikipedia"
     else:
         if isinstance(languages[language], str):
             translation = languages["en"]
