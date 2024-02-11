@@ -8,6 +8,7 @@
         "cs": "Czech", "cu": "Church Slavic", "cv": "Chuvash", "cy": "Welsh", "da": "Danish",
         "de": "German", "dv": "Maldivian", "dz": "Dzongkha", "ee": "Ewe", "el": "Greek",
         "en": {
+            "name": "English",
             "month-names": {
                 "1": "January", "2": "February", "3": "March",
                 "4": "April", "5": "May", "6": "June",
@@ -23,6 +24,7 @@
         },
         "eo": "Esperanto",
         "es": {
+            "name": "Spanish",
             "month-names": {
                 "1": "Enero", "2": "Febrero", "3": "Marzo",
                 "4": "Abril", "5": "Mayo", "6": "Junio",

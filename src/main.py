@@ -56,11 +56,14 @@ async def get_user(
 
     if not translated:
         translation = languages["en"]
+        wiki_language = languages[language]["name"] + " Wikipedia"
     else:
         if isinstance(languages[language], str):
             translation = languages["en"]
+            wiki_language = languages[language]["name"] + " Wikipedia"
         else:
             translation = languages[language]
+            wiki_language = languages[language]["text2"]
 
     if streak_type == "current":
         streak_info = [translation["text4"][0], streak_edits]
@@ -78,6 +81,7 @@ async def get_user(
             "total": edit_count,
             "streak": streak_info,
             "i18n": translation,
+            "i18nLang": wiki_language,
             "theme": colour_mode,
             "data": edit_data
         }
