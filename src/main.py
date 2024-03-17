@@ -289,6 +289,10 @@ def format_data_html(year: str, month_names: dict, edit_days: dict,
                 day_transparency = "no-transparent"
                 edit_level = "day-level-0"
                 tooltip = f"{translation['text5'][0]} {char_day}"
+                is_today = " "
+
+                if number_day == str(datetime.today().date()):
+                    is_today = " id=\"is-today\" "
 
                 if day == 0:
                     day_transparency = "yes-transparent"
@@ -315,7 +319,7 @@ def format_data_html(year: str, month_names: dict, edit_days: dict,
                         tooltip = f"{edit_days[number_day]} {translation['text5'][2]} {char_day}"
 
                 edit_data += f"""
-                <div class=\"day {edit_level} {day_transparency}\">
+                <div{is_today}class=\"day {edit_level} {day_transparency}\">
                     <span class=\"tooltip-text\">{tooltip}</span>
                 </div>
                 """
