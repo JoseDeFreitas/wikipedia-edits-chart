@@ -46,7 +46,7 @@ body {
 #header-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
 }
 
 #header-inner {
