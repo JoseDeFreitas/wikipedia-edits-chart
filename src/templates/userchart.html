@@ -50,11 +50,11 @@
                 </div>
             </div>
         </main>
+        {% if popup %}
         <footer id="popup">
-            {% if popup %}
-                <p>The translation for that language is not available. You can help by <a href="https://github.com/JoseDeFreitas/wikipedia-edits-chart/blob/main/CONTRIBUTING.md#add-a-new-translation">adding it</a>.</p>
-            {% endif %}
+            <p>The translation for that language is not available. You can help by <a href="https://github.com/JoseDeFreitas/wikipedia-edits-chart/blob/main/CONTRIBUTING.md#add-a-new-translation">adding it</a>.</p>
         </footer>
+        {% endif %}
     </body>
     <script>
         setTimeout(function() {
