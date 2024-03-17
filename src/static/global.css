@@ -57,11 +57,12 @@ body {
 }
 
 #title {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 
 #header-container a {
+    font-size: 0.9em;
     color: #2626ff;
     text-decoration: none;
 }
