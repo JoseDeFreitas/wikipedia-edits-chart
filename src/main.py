@@ -54,6 +54,7 @@ async def get_user(
 
     colour_mode = f"/{theme}.css"
 
+    lang_unavailable = False
     if not translated:
         translation = languages["en"]
 
@@ -65,6 +66,7 @@ async def get_user(
         if isinstance(languages[language], str):
             translation = languages["en"]
             wiki_language = languages[language]["name"] + " Wikipedia"
+            lang_unavailable = True
         else:
             translation = languages[language]
             wiki_language = languages[language]["text2"]
@@ -86,6 +88,7 @@ async def get_user(
             "streak": streak_info,
             "i18n": translation,
             "i18nLang": wiki_language,
+            "popup": lang_unavailable,
             "theme": colour_mode,
             "data": edit_data
         }
