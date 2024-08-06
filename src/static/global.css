@@ -56,7 +56,7 @@ a:hover {
 #header-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 4em;
+    height: 10vh;
 }
 
 #header-inner {
@@ -79,6 +79,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 89vh;
 }
 
 #contributions-chart {
