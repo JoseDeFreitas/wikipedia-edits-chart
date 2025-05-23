@@ -1,5 +1,8 @@
 # Wikipedia Edits Chart
 
+> [!WARNING]
+> [Glitch is shutting down](https://blog.glitch.com/post/changes-are-coming-to-glitch/). Whenever I can, I will move the host to another platform.
+
 This is a small program that prints a chart, in the form of a calendar (based
 on the year you choose),[^1] that shows the days a specified user contributed to
 a specific Wikipedia project (that is, a specific Wikipedia language) and the
